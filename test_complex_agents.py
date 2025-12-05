@@ -11,7 +11,7 @@ from datetime import datetime
 from typing import Dict, List, Any
 
 # Configuration
-HF_TOKEN = "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"
+HF_TOKEN = "hf_token"
 ENDPOINT_URL = "https://mzkzbztaqbgxlted.us-east-1.aws.endpoints.huggingface.cloud"
 MODEL_ID = "Qwen/Qwen2.5-3B-Instruct"
 RESULTS_DIR = "/Users/mac/Documents/GitHub/Agent-benchmark-test/Results"
