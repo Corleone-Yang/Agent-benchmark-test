@@ -1,0 +1,112 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "endpoint": "https://mzkzbztaqbgxlted.us-east-1.aws.endpoints.huggingface.cloud",
+  "test_date": "2025-12-05T16:34:17.235775",
+  "task": "sql_generation",
+  "total": 10,
+  "correct": 0,
+  "success_rate": 0.0,
+  "results": [
+    {
+      "id": 1,
+      "question": "What is the Presentation of Credentials has a Termination of Mission listed as August 15, 2000?",
+      "expected_answer": [
+        "March 19, 1998"
+      ],
+      "model_response": "Generate a SQL query for this question.\n\nDatabase Schema: The name of this table is US Ambassadors and Envoy Extraordinary to Colombia, and the headers of this table are Representative,Title,Presentation of Credentials,Termination of Mission,Appointed by.\n\nQuestion: What is the Presentation of Credentials has a Termination of Mission listed as August 15, 2000?\n\nSQL Query: SELECT Presentation_of_Credentials FROM `US Ambassadors and Envoy Extraordinary to Colombia` WHERE Termination_of_Mission = 'August 15, 2000' Here's your SQL query. It selects the `Presentation_of_Credentials` for all records in the table where the `Termination_of_Mission` is 'August 15, 2000'.\n\n```sql\nSELECT Presentation_of_Credentials \nFROM `US Ambassadors and Envoy Extraordinary to Colombia`\nWHERE Termination_of_Mission = 'August 15, 2000';\n```\n\nPlease ensure that the data type of `Termination_of_Mission` field is indeed a date format so that comparisons work correctly. If it is stored as text (string) but still needs to be compared as a date, you might need to use an appropriate date parsing function or convert the string to a date format before the comparison. For example:\n\n```sql\nSELECT Presentation_of_Credentials \nFROM `US Ambassadors and Envoy Extraordinary to Colombia`\nWHERE STR_TO_DATE(Termination_of_Mission, '%M %d, %Y') = STR_TO_DATE('August 15, 2000', '%M %d, %Y');\n```\n\nThis ensures the date is correctly interpreted and compared. Adjust the format mask (`'%M %d, %Y'`) according to your actual date format if necessary. \n\nIf your table schema allows, storing dates directly would be more efficient and easier to handle. But this query should work as well for your specific case.",
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": 2,
+      "question": "his nickname is \"jimmy,\" but what is his full name?",
+      "expected_answer": [
+        "Checco D'Angelo"
+      ],
+      "model_response": "Generate a SQL query for this question.\n\nDatabase Schema: The name of this table is race_results, and the headers of this table are Class,No,Team,Drivers,Chassis,Engine,Laps.\n\nQuestion: his nickname is \"jimmy,\" but what is his full name?\n\nSQL Query: There isn't enough information provided in the question or the database schema to construct an appropriate SQL query. The question asks for a full name associated with a nickname \"jimmy\" but doesn't specify which table contains the full names or the relationship between the nicknames and full names. \n\nThe schema only describes one table named 'race_results' which does not contain any field related to nicknames or full names. Therefore, it's impossible to write a correct SQL query without additional details.\n   \nIf there is another table (like 'athletes' or 'personnel') that has the full names and also contains the nickname \"jimmy\", then we would need to know the structure and relationships between these tables to build an accurate query. Without such details, no query can be constructed. \n\nTo give a concrete example, if you have two tables like:\n\n1. `race_results` with columns: `Class`, `No`, `Team`, `Drivers`, `Chassis`, `Engine`, `Laps`\n2. `athletes` with columns: `Nickname`, `Full_Name`\n\nYou could join these tables on the `NickName` column like this:\n\n```sql\nSELECT Full_Name \nFROM race_results\nJOIN athletes ON race_results.Drivers = athletes.Nickname\nWHERE athletes.Nickname = 'jimmy';\n```\n\nBut again, based on the information given in the problem statement, no such query is possible. \n\nSo, please provide more context or details about the other tables involved in the relationship between nicknames and full names.",
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": 3,
+      "question": "how many weeks did julie covington's \"don't cry for me argentina\" spend at the top of australia's singles chart?",
+      "expected_answer": [
+        "7"
+      ],
+      "model_response": "Generate a SQL query for this question.\n\nDatabase Schema: The name of this table is Music Chart History, and the headers of this table are #,Title,Artist,Highest pos. reached,weeks at No. 1.\n\nQuestion: how many weeks did julie covington's \"don't cry for me argentina\" spend at the top of australia's singles chart?\n\nSQL Query: \n```sql\nSELECT SUM(CASE WHEN Artist = 'Julie Covington' AND Title = 'Don\\'t Cry For Me Argentina' THEN weeks_at_No_1 ELSE 0 END) AS weeks_at_top\nFROM Music_Chart_History\nWHERE Artist = 'Julie Covington' AND Title = 'Don\\'t Cry For Me Argentina';\n``` \n\nThis query uses the SUM function with a CASE statement to add up the number of weeks that Julie Covington's \"Don't Cry For Me Argentina\" spent at the top position in the Australian singles chart. It then filters the rows based on the artist and title to ensure we're getting the correct song. The result will be the total number of weeks spent at the top position. The `SUM` function along with `CASE` statement makes it possible to count the occurrences where both the artist and title match, and sum them up. We use backticks around the column names to handle any special characters. This assumes that the column name `weeks_at_No_1` is correctly named in the database schema and contains numeric values representing the number of weeks at the top position. Adjust the column names if they differ. To get the exact number of weeks that Julie Covington's \"Don't Cry For Me Argentina\" spent at the top of Australia's singles chart, you can modify the SQL query as follows:\n\n```sql\nSELECT COUNT(weeks_at_No_1) AS weeks_at_top\nFROM Music_Chart_History\nWHERE Artist = 'Julie Covington' AND Title = 'Don\\'t Cry For Me Argentina';\n```\n\n### Explanation:\n- **`COUNT(weeks_at_No_1)`**: This counts the number of times the song appears in the data where the artist is \"Julie Covington\" and the title is \"Don't Cry For Me Argentina\". Since you want the number of weeks at the top position, `weeks_at_No_1` should contain the relevant numeric value (e.g., 1, 2, etc.).\n  \n### Note:\n- Ensure that `weeks_at_No_1` is an integer or boolean type (e.g., 1 if the song was at the top, 0 otherwise). If it contains other types, adjust accordingly.\n- If `weeks_at_No_1` is a boolean (`T/F`) type, you might need to convert it to an integer using `COUNT(T)` which would count the number of `True` values. \n\nIf `weeks_at_No_1` is an",
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": 4,
+      "question": "how many floors does the capitol square have?",
+      "expected_answer": [
+        "26"
+      ],
+      "model_response": "Generate a SQL query for this question.\n\nDatabase Schema: The name of this table is skyscrapers_in_Columbus, and the headers of this table are Rank,Name,Height\\nft / m,Floors,Year,Notes.\n\nQuestion: how many floors does the capitol square have?\n\nSQL Query: Here's the SQL query to find out how many floors the Capitol Square has:\n\n```sql\nSELECT Floors \nFROM skyscrapers_in_Columbus \nWHERE Name = 'Capitol Square';\n```\n\nNote that the name \"Capitol Square\" needs to be exactly as it appears in your database. If there could be variations (e.g., \"Capitol Square Building\"), you may want to use a case-insensitive comparison with `UPPER()` or `LOWER()` function like so:\n\n```sql\nSELECT Floors \nFROM skyscrapers_in_Columbus \nWHERE UPPER(Name) = UPPER('Capitol Square');\n``` \n\nMake sure to adjust the query based on the exact spelling and format used in your database.",
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": 5,
+      "question": "What is the total game number with athlone town as the opponent?",
+      "expected_answer": [
+        "1.0"
+      ],
+      "model_response": "Generate a SQL query for this question.\n\nDatabase Schema: The name of this table is Game Schedule, and the headers of this table are Game,Date,Opponent,Venue,Result,Attendance.\n\nQuestion: What is the total game number with athlone town as the opponent?\n\nSQL Query: \n\n```sql\nSELECT COUNT(*) \nFROM Game_Schedule \nWHERE Opponent = 'Athlone Town';\n```",
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": 6,
+      "question": "what is the total number of register listings from dover?",
+      "expected_answer": [
+        "17"
+      ],
+      "model_response": "Generate a SQL query for this question.\n\nDatabase Schema: The name of this table is historic_sites, and the headers of this table are ,Name on the Register,Date listed,Location,City or town,Summary.\n\nQuestion: what is the total number of register listings from dover?\n\nSQL Query: To find the total number of register listings from Dover, you can use the following SQL query:\n\n```sql\nSELECT COUNT(*) \nFROM historic_sites \nWHERE City_or_town = 'Dover';\n```\n\nThis query will count all rows where the `City or town` column value is 'Dover'. This assumes that Dover is spelled correctly in the `City or town` field. If there might be different spellings (e.g., \"Dover\" vs. \"DOVER\"), you may need to adjust the query accordingly. \n\nIf you want to ensure case insensitivity, you can use an UPPER() or LOWER() function:\n\n```sql\nSELECT COUNT(*) \nFROM historic_sites \nWHERE LOWER(City_or_town) = LOWER('Dover');\n```\n\nOr using a CASE statement to handle potential variations:\n\n```sql\nSELECT COUNT(*)\nFROM historic_sites\nWHERE CASE \n        WHEN LOWER(City_or_town) LIKE '%dover%' THEN 1\n        ELSE 0\n      END = 1;\n``` \n\nThese queries should help you get the desired result. Make sure to test them in your specific environment to ensure they work as expected.",
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": 7,
+      "question": "who was the only wrestler to have a title reign in 1992?",
+      "expected_answer": [
+        "Dick Murdoch"
+      ],
+      "model_response": "Generate a SQL query for this question.\n\nDatabase Schema: The name of this table is Wrestler Title Reigns, and the headers of this table are Wrestler:,Reigns:,Date:,Place:,Notes:.\n\nQuestion: who was the only wrestler to have a title reign in 1992?\n\nSQL Query: To find out who was the only wrestler to have a title reign in 1992, we need to filter the data for the year 1992 and identify if there is exactly one entry for each wrestler with a title reign in that year. Here's how you can write the SQL query:\n\n```sql\nSELECT Wrestler\nFROM Wrestler_Title_Reigns\nWHERE Date LIKE '%1992%'\nGROUP BY Wrestler\nHAVING COUNT(DISTINCT Reigns) = 1;\n```\n\nExplanation:\n- `SELECT Wrestler`: We select the wrestler names.\n- `FROM Wrestler_Title_Reigns`: We specify the table name.\n- `WHERE Date LIKE '%1992%'`: This filters the rows to include only those where the date includes the year 1992.\n- `GROUP BY Wrestler`: We group the results by wrestler to aggregate the data.\n- `HAVING COUNT(DISTINCT Reigns) = 1`: We use the HAVING clause to ensure that each wrestler has exactly one distinct value for \"Reigns\" (title reign), indicating they had a single title reign in 1992.\n\nThis query will return the wrestler(s) who had exactly one title reign in the year 1992. If there is more than one wrestler meeting this condition, it might indicate an issue with the data or a misunderstanding of the criteria. Make sure the data aligns with your expectations before running the query. \n\nIf you want to get the exact wrestler name and other details, you can extend the SELECT statement accordingly:\n\n```sql\nSELECT Wrestler, Reigns, Date, Place, Notes\nFROM Wrestler_Title_Reigns\nWHERE Date LIKE '%1992%'\nGROUP BY Wrestler\nHAVING COUNT(DISTINCT Reigns) = 1;\n```\n\nThis version will give you all relevant information about the wrestler who had the sole title reign in 1992. \n\nRemember to adjust column names and table names as per your actual schema. If any additional conditions or details are needed, let me know!",
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": 8,
+      "question": "Which Score has a Result of 2–1, and a Competition of friendly, and a Goal smaller than 17?",
+      "expected_answer": [
+        "1–0",
+        "2–0"
+      ],
+      "model_response": "Generate a SQL query for this question.\n\nDatabase Schema: The name of this table is Football Matches, and the headers of this table are Goal,Date,Venue,Score,Result,Competition.\n\nQuestion: Which Score has a Result of 2–1, and a Competition of friendly, and a Goal smaller than 17?\n\nSQL Query: \n```\nSELECT Score \nFROM Football_Matches \nWHERE Result = '2–1' AND Competition = 'friendly' AND Goal < 17;\n```",
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": 9,
+      "question": "Which Average that has a W-L-T of 5-1, and a Season smaller than 2001, and Games smaller than 6?",
+      "expected_answer": [
+        "none"
+      ],
+      "model_response": "Generate a SQL query for this question.\n\nDatabase Schema: The name of this table is Football Team Performance, and the headers of this table are Season,Games,W-L-T,Attendance,Average.\n\nQuestion: Which Average that has a W-L-T of 5-1, and a Season smaller than 2001, and Games smaller than 6?\n\nSQL Query: \n```sql\nSELECT AVG \nFROM Football_Team_Performance\nWHERE W_L_T = '5-1' AND Season < 2001 AND Games < 6;\n``` \nNote: The above SQL query should return the Average value that meets all the specified conditions. However, since the Average column might not be directly available in the table header, it's assumed to be a function of some other columns or data which needs to be computed based on your specific context. Here, the Average is considered as the result of some calculation based on other data in the row. So, the actual Average column name may vary. Hence, replace `AVG` with the actual column name if known. \n\nPlease replace `AVG` with the correct column name if you know it, otherwise use `AVG(AvgColumn)` where AvgColumn is the actual column name used for averaging. Let's assume the actual average column name is `Points`.\n\n```sql\nSELECT Points \nFROM Football_Team_Performance\nWHERE W_L_T = '5-1' AND Season < 2001 AND Games < 6;\n```",
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": 10,
+      "question": "What is the Average for South Carolina with an Interview less than 9.626?",
+      "expected_answer": [
+        "none"
+      ],
+      "model_response": "Generate a SQL query for this question.\n\nDatabase Schema: The name of this table is Beauty_Pageant_Scores, and the headers of this table are State,Interview,Swimsuit,Evening Gown,Average.\n\nQuestion: What is the Average for South Carolina with an Interview less than 9.626?\n\nSQL Query: \n```sql\nSELECT AVG(Average) \nFROM Beauty_Pageant_Scores \nWHERE State = 'South Carolina' AND Interview < 9.626;\n```",
+      "judged_correct": false,
+      "success": true
+    }
+  ]
+}

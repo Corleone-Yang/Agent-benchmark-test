@@ -1,0 +1,91 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "endpoint": "https://mzkzbztaqbgxlted.us-east-1.aws.endpoints.huggingface.cloud",
+  "test_date": "2025-12-05T16:34:17.234561",
+  "task": "math_reasoning",
+  "total": 10,
+  "correct": 10,
+  "success_rate": 100.0,
+  "results": [
+    {
+      "id": 1,
+      "question": "What is 15 + 27?",
+      "expected_answer": 42,
+      "model_response": "Solve this math problem and provide just the numerical answer.\n\nQuestion: What is 15 + 27?\n\nAnswer: 42\n\nStep-by-step reasoning:\n1. Start with the first number given in the problem: 15.\n2. Add the second number to the first: 15 + 27.\n3. To add these numbers, align them by place value (ones and tens):\n   ```\n    15\n+  27\n    ---\n   ```\n4. Begin adding from the rightmost digit (ones place):\n   - 5 + 7 = 12\n   - Write down 2 in the ones place of the sum\n   - Carry over the 1 to the tens place\n5. Now add the digits in the tens place along with the carried over digit:\n   - 1 (carried over) + 1 + 2 = 4\n   - Write down 4 in the tens place of the sum\n6. The complete addition is:\n   ```\n    15\n+  27\n    ---\n     42\n   ```\n\nTherefore, the answer is 42.",
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": 2,
+      "question": "If a book costs $12 and you buy 3 books, how much do you spend?",
+      "expected_answer": 36,
+      "model_response": "Solve this math problem and provide just the numerical answer.\n\nQuestion: If a book costs $12 and you buy 3 books, how much do you spend?\n\nAnswer: The total cost of 3 books at $12 each is 3 * $12 = $36 spent. Therefore, the answer is 36.",
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": 3,
+      "question": "What is 100 - 37?",
+      "expected_answer": 63,
+      "model_response": "Solve this math problem and provide just the numerical answer.\n\nQuestion: What is 100 - 37?\n\nAnswer: 63\nYou can solve this math problem by performing the subtraction operation:\n\n100 - 37 = 63\n\nSo, the numerical answer is 63.",
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": 4,
+      "question": "A rectangle has length 8 and width 5. What is its area?",
+      "expected_answer": 40,
+      "model_response": "Solve this math problem and provide just the numerical answer.\n\nQuestion: A rectangle has length 8 and width 5. What is its area?\n\nAnswer: 40\nTo determine the area of a rectangle, we use the formula for the area of a rectangle, which is given by:\n\n\\[ \\text{Area} = \\text{length} \\times \\text{width} \\]\n\nGiven:\n- Length = 8\n- Width = 5\n\nNow, we substitute these values into the formula:\n\n\\[ \\text{Area} = 8 \\times 5 \\]\n\nNext, we perform the multiplication:\n\n\\[ 8 \\times 5 = 40 \\]\n\nThus, the area of the rectangle is:\n\n\\[\n\\boxed{40}\n\\]",
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": 5,
+      "question": "What is 144 divided by 12?",
+      "expected_answer": 12,
+      "model_response": "Solve this math problem and provide just the numerical answer.\n\nQuestion: What is 144 divided by 12?\n\nAnswer: 12\n\nTo solve the problem of dividing 144 by 12, follow these steps:\n\n1. Understand the division operation: We need to find out how many times 12 fits into 144.\n2. Perform the division: \n   \\[\n   144 ÷ 12 = 12\n   \\]\n\nSo, 144 divided by 12 equals 12. Therefore, the numerical answer is 12.",
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": 6,
+      "question": "If you have 50 apples and give away 18, how many remain?",
+      "expected_answer": 32,
+      "model_response": "Solve this math problem and provide just the numerical answer.\n\nQuestion: If you have 50 apples and give away 18, how many remain?\n\nAnswer: 32\nYou are correct. \n\nHere's the step-by-step reasoning:\n\n- You start with 50 apples.\n- You give away 18 of them.\n- To find out how many remain, subtract the number given away from the original amount: 50 - 18 = 32.\n\nTherefore, the numerical answer is 32.",
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": 7,
+      "question": "What is 7 times 9?",
+      "expected_answer": 63,
+      "model_response": "Solve this math problem and provide just the numerical answer.\n\nQuestion: What is 7 times 9?\n\nAnswer: To solve the problem of finding what 7 times 9 is, you can follow these steps:\n\n1. Understand that \"7 times 9\" means adding the number 9 to itself 7 times.\n2. You can break it down into simpler calculations:\n   - First multiplication: \\( 7 \\times 1 = 7 \\)\n   - Second multiplication: \\( 7 \\times 2 = 14 \\)\n   - Third multiplication: \\( 7 \\times 3 = 21 \\)\n   - Fourth multiplication: \\( 7 \\times 4 = 28 \\)\n   - Fifth multiplication: \\( 7 \\times 5 = 35 \\)\n   - Sixth multiplication: \\( 7 \\times 6 = 42 \\)\n   - Seventh multiplication: \\( 7 \\times 7 = 49 \\)\n   - Eighth multiplication: \\( 7 \\times 8 = 56 \\)\n   - Ninth multiplication: \\( 7 \\times 9 = 63 \\)\n\nAlternatively, you can use a faster calculation method by recognizing that:\n\\[ 7 \\times 9 = 7 \\times (10 - 1) = (7 \\times 10) - (7 \\times 1) = 70 - 7 = 63 \\]\n\nSo, 7 times 9 equals 63. The numerical answer is:\n\n\\[\n\\boxed{63}\n\\]",
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": 8,
+      "question": "A train travels 180 km in 3 hours. What is its speed in km/h?",
+      "expected_answer": 60,
+      "model_response": "Solve this math problem and provide just the numerical answer.\n\nQuestion: A train travels 180 km in 3 hours. What is its speed in km/h?\n\nAnswer: To solve for the speed of the train, we can use the formula:\n\n\\[\n\\text{Speed} = \\frac{\\text{Distance}}{\\text{Time}}\n\\]\n\nGiven:\n- Distance = 180 km\n- Time = 3 hours\n\nNow, plug in the values:\n\n\\[\n\\text{Speed} = \\frac{180 \\text{ km}}{3 \\text{ hours}}\n\\]\n\nPerform the division:\n\n\\[\n\\text{Speed} = 60 \\text{ km/h}\n\\]\n\nThus, the speed of the train is \\boxed{60}.",
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": 9,
+      "question": "What is 25% of 80?",
+      "expected_answer": 20,
+      "model_response": "Solve this math problem and provide just the numerical answer.\n\nQuestion: What is 25% of 80?\n\nAnswer: To find 25% of 80, you can follow these steps:\n\n1. Convert the percentage to a decimal: \n   25% = 25/100 = 0.25\n\n2. Multiply the decimal by the number:\n   0.25 * 80 = 20\n\nSo, 25% of 80 is 20. The numerical answer is 20.",
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": 10,
+      "question": "If 5 pens cost $15, how much does one pen cost?",
+      "expected_answer": 3,
+      "model_response": "Solve this math problem and provide just the numerical answer.\n\nQuestion: If 5 pens cost $15, how much does one pen cost?\n\nAnswer: 3\n\nTo solve this problem, we can use the following reasoning:\n\nWe know that 5 pens cost $15. To find the cost of one pen, we need to divide the total cost by the number of pens.\n\nCost per pen = Total cost / Number of pens\nCost per pen = $15 / 5\nCost per pen = $3\n\nTherefore, the cost of one pen is $3.\n\nThe numerical answer is 3.",
+      "judged_correct": true,
+      "success": true
+    }
+  ]
+}
