@@ -78,8 +78,8 @@ def generate_response(prompt: str, max_retries: int = 3) -> Dict[str, Any]:
     return {"success": False, "response": "", "error": "Max retries exceeded"}
 
 
-def load_bfcl_data(test_name: str, limit: int = 10) -> List[Dict]:
-    """Load BFCL test data"""
+def load_bfcl_data(test_name: str, limit: int = None) -> List[Dict]:
+    """Load BFCL test data - loads ALL data if limit is None"""
     data_file = os.path.join(BFCL_DATA_PATH, f"BFCL_v4_{test_name}.json")
     if not os.path.exists(data_file):
         print(f"Warning: Data file not found: {data_file}")
@@ -88,7 +88,7 @@ def load_bfcl_data(test_name: str, limit: int = 10) -> List[Dict]:
     data = []
     with open(data_file, 'r') as f:
         for idx, line in enumerate(f):
-            if idx >= limit:
+            if limit is not None and idx >= limit:
                 break
             data.append(json.loads(line))
     return data
@@ -416,82 +416,237 @@ Response:"""
             "success_rate": success_rate, "results": results}
 
 
+# ==================== Generic Test Function ====================
+
+def test_generic(test_name: str, limit: int = None, is_irrelevance: bool = False):
+    """Generic test function for any BFCL category - tests ALL data if limit is None"""
+    print(f"\n{'='*80}")
+    print(f"TASK: {test_name.upper().replace('_', ' ')}")
+    print(f"{'='*80}")
+
+    data = load_bfcl_data(test_name, limit)
+    answers = load_bfcl_answers(test_name)
+
+    if not data:
+        print(f"No test data found for {test_name}")
+        return {"task": test_name, "total": 0, "correct": 0, "success_rate": 0, "results": []}
+
+    results = []
+    correct = 0
+
+    print(f"\nTesting {len(data)} tasks...")
+
+    for idx, item in enumerate(data, 1):
+        test_id = item['id']
+        question = item['question'][0][0]['content']
+        functions = item['function']
+        ground_truth = answers.get(test_id, [])
+
+        print(f"[{idx}/{len(data)}] {question[:55]}...")
+
+        func_schema = format_function_schema(functions)
+
+        if is_irrelevance:
+            prompt = f"""You are a helpful assistant.
+If none of the functions can answer the query, say "NO_FUNCTION_NEEDED".
+
+Available Functions:
+{func_schema}
+
+User Query: {question}
+
+If applicable: function_name(args)
+If not applicable: NO_FUNCTION_NEEDED
+
+Response:"""
+        else:
+            prompt = f"""You are a helpful assistant that can call functions.
+
+Available Functions:
+{func_schema}
+
+User Query: {question}
+
+Respond with ONLY the function call in this format:
+function_name(arg1=value1, arg2=value2)
+
+Response:"""
+
+        result = generate_response(prompt)
+
+        if result['success']:
+            if is_irrelevance:
+                response_lower = result['response'].lower()
+                is_correct = (
+                    "no_function" in response_lower or
+                    "none" in response_lower or
+                    "cannot" in response_lower or
+                    "not applicable" in response_lower
+                )
+            else:
+                parsed_call = parse_function_call(result['response'])
+                is_correct = evaluate_function_call(parsed_call, ground_truth)
+
+            if is_correct:
+                correct += 1
+                print(f"  ✓ CORRECT")
+            else:
+                print(f"  ✗ INCORRECT")
+        else:
+            is_correct = False
+            print(f"  ✗ ERROR: {result['error'][:40] if result['error'] else 'Unknown'}")
+
+        results.append({
+            "id": test_id,
+            "question": question,
+            "model_response": result['response'],
+            "ground_truth": ground_truth,
+            "judged_correct": is_correct,
+            "success": result['success']
+        })
+
+        time.sleep(0.3)
+
+    success_rate = (correct / len(data) * 100) if data else 0
+    print(f"\n{test_name.upper()}: {correct}/{len(data)} correct ({success_rate:.1f}%)")
+
+    return {"task": test_name, "total": len(data), "correct": correct,
+            "success_rate": success_rate, "results": results}
+
+
 # ==================== Main ====================
+
+# All BFCL test categories
+ALL_TEST_CATEGORIES = [
+    # Non-live single turn
+    ("simple_python", False),
+    ("simple_java", False),
+    ("simple_javascript", False),
+    ("multiple", False),
+    ("parallel", False),
+    ("parallel_multiple", False),
+    ("irrelevance", True),
+    # Live single turn
+    ("live_simple", False),
+    ("live_multiple", False),
+    ("live_parallel", False),
+    ("live_parallel_multiple", False),
+    ("live_irrelevance", True),
+    ("live_relevance", False),
+]
 
 def main():
     print("\n" + "="*80)
-    print("STARTING BFCL EVALUATION")
+    print("BERKELEY FUNCTION CALLING LEADERBOARD - FULL EVALUATION")
     print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"Total Categories: {len(ALL_TEST_CATEGORIES)}")
     print("="*80)
 
     os.makedirs(RESULTS_DIR, exist_ok=True)
 
-    print("\n[1/4] Testing Simple Function Calling...")
-    simple_python = test_simple_function_calling("simple_python", 10)
-
-    print("\n[2/4] Testing Multiple Function Selection...")
-    multiple = test_multiple_function_calling(10)
-
-    print("\n[3/4] Testing Parallel Function Calling...")
-    parallel = test_parallel_function_calling(10)
-
-    print("\n[4/4] Testing Irrelevance Detection...")
-    irrelevance = test_irrelevance_detection(10)
-
+    all_results = {}
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
 
-    tasks = [
-        ("simple_python", simple_python),
-        ("multiple", multiple),
-        ("parallel", parallel),
-        ("irrelevance", irrelevance)
-    ]
+    for i, (test_name, is_irrelevance) in enumerate(ALL_TEST_CATEGORIES, 1):
+        print(f"\n[{i}/{len(ALL_TEST_CATEGORIES)}] Testing {test_name}...")
+        result = test_generic(test_name, limit=None, is_irrelevance=is_irrelevance)  # Test ALL data
+        all_results[test_name] = result
 
-    for task_name, task_data in tasks:
-        filename = os.path.join(RESULTS_DIR, f"bfcl_{task_name}_{timestamp}.json")
+        # Save individual result
+        filename = os.path.join(RESULTS_DIR, f"bfcl_{test_name}_{timestamp}.json")
         with open(filename, 'w', encoding='utf-8') as f:
             json.dump({
                 "model": MODEL_ID,
                 "endpoint": ENDPOINT_URL,
                 "test_date": datetime.now().isoformat(),
-                **task_data
+                **result
             }, f, indent=2, ensure_ascii=False)
-        print(f"✓ Saved: {filename}")
 
-    total_tests = sum(t[1]['total'] for t in tasks)
-    total_correct = sum(t[1]['correct'] for t in tasks)
-    avg_rate = sum(t[1]['success_rate'] for t in tasks) / len(tasks) if tasks else 0
+    # Calculate totals
+    total_tests = sum(r['total'] for r in all_results.values())
+    total_correct = sum(r['correct'] for r in all_results.values())
+    valid_rates = [r['success_rate'] for r in all_results.values() if r['total'] > 0]
+    avg_rate = sum(valid_rates) / len(valid_rates) if valid_rates else 0
 
-    summary_file = os.path.join(RESULTS_DIR, f"BFCL_SUMMARY_{timestamp}.md")
+    # Generate summary
+    summary_file = os.path.join(RESULTS_DIR, f"BFCL_FULL_SUMMARY_{timestamp}.md")
     with open(summary_file, 'w', encoding='utf-8') as f:
-        f.write(f"""# BFCL Evaluation Results
+        f.write(f"""# BFCL Full Evaluation Results
 
 **Model**: {MODEL_ID}
 **Date**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+**Categories Tested**: {len(ALL_TEST_CATEGORIES)}
 
-## Results
+## Results by Category
 
-| Task | Correct | Total | Rate |
-|------|---------|-------|------|
-| Simple Python | {simple_python['correct']} | {simple_python['total']} | {simple_python['success_rate']:.1f}% |
-| Multiple | {multiple['correct']} | {multiple['total']} | {multiple['success_rate']:.1f}% |
-| Parallel | {parallel['correct']} | {parallel['total']} | {parallel['success_rate']:.1f}% |
-| Irrelevance | {irrelevance['correct']} | {irrelevance['total']} | {irrelevance['success_rate']:.1f}% |
-| **Total** | **{total_correct}** | **{total_tests}** | **{avg_rate:.1f}%** |
+| Category | Task | Correct | Total | Rate |
+|----------|------|---------|-------|------|
 """)
+        # Non-live
+        f.write("| **Non-Live** | | | | |\n")
+        for name in ["simple_python", "simple_java", "simple_javascript", "multiple", "parallel", "parallel_multiple", "irrelevance"]:
+            if name in all_results:
+                r = all_results[name]
+                f.write(f"| | {name} | {r['correct']} | {r['total']} | {r['success_rate']:.1f}% |\n")
 
-    print(f"\n✓ Summary: {summary_file}")
+        # Live
+        f.write("| **Live** | | | | |\n")
+        for name in ["live_simple", "live_multiple", "live_parallel", "live_parallel_multiple", "live_irrelevance", "live_relevance"]:
+            if name in all_results:
+                r = all_results[name]
+                f.write(f"| | {name} | {r['correct']} | {r['total']} | {r['success_rate']:.1f}% |\n")
 
+        f.write(f"""
+## Summary
+
+| Metric | Value |
+|--------|-------|
+| Total Questions | {total_tests} |
+| Total Correct | {total_correct} |
+| Overall Accuracy | {(total_correct/total_tests*100) if total_tests > 0 else 0:.1f}% |
+| Average Category Rate | {avg_rate:.1f}% |
+
+## Category Breakdown
+
+### Non-Live Tests (Synthetic)
+""")
+        non_live = ["simple_python", "simple_java", "simple_javascript", "multiple", "parallel", "parallel_multiple", "irrelevance"]
+        for name in non_live:
+            if name in all_results:
+                r = all_results[name]
+                f.write(f"- **{name}**: {r['correct']}/{r['total']} ({r['success_rate']:.1f}%)\n")
+
+        f.write("\n### Live Tests (Real-world)\n")
+        live = ["live_simple", "live_multiple", "live_parallel", "live_parallel_multiple", "live_irrelevance", "live_relevance"]
+        for name in live:
+            if name in all_results:
+                r = all_results[name]
+                f.write(f"- **{name}**: {r['correct']}/{r['total']} ({r['success_rate']:.1f}%)\n")
+
+        f.write(f"\n*Generated: {datetime.now().isoformat()}*\n")
+
+    print(f"\n✓ Summary saved: {summary_file}")
+
+    # Final console output
     print("\n" + "="*80)
-    print("EVALUATION COMPLETE")
+    print("BFCL FULL EVALUATION COMPLETE")
     print("="*80)
-    print(f"Simple Python:  {simple_python['correct']}/{simple_python['total']} ({simple_python['success_rate']:.1f}%)")
-    print(f"Multiple:       {multiple['correct']}/{multiple['total']} ({multiple['success_rate']:.1f}%)")
-    print(f"Parallel:       {parallel['correct']}/{parallel['total']} ({parallel['success_rate']:.1f}%)")
-    print(f"Irrelevance:    {irrelevance['correct']}/{irrelevance['total']} ({irrelevance['success_rate']:.1f}%)")
+    print("\nNon-Live Tests:")
+    for name in ["simple_python", "simple_java", "simple_javascript", "multiple", "parallel", "parallel_multiple", "irrelevance"]:
+        if name in all_results:
+            r = all_results[name]
+            print(f"  {name:25s}: {r['correct']:2d}/{r['total']:2d} ({r['success_rate']:5.1f}%)")
+
+    print("\nLive Tests:")
+    for name in ["live_simple", "live_multiple", "live_parallel", "live_parallel_multiple", "live_irrelevance", "live_relevance"]:
+        if name in all_results:
+            r = all_results[name]
+            print(f"  {name:25s}: {r['correct']:2d}/{r['total']:2d} ({r['success_rate']:5.1f}%)")
+
     print("="*80)
-    print(f"Average: {avg_rate:.1f}%")
-    print(f"Results saved to: {RESULTS_DIR}/")
+    print(f"Total: {total_correct}/{total_tests} ({(total_correct/total_tests*100) if total_tests > 0 else 0:.1f}%)")
+    print(f"Average Category Rate: {avg_rate:.1f}%")
+    print(f"\nResults saved to: {RESULTS_DIR}/")
 
 
 if __name__ == "__main__":
