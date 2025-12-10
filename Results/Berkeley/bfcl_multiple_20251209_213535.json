@@ -1,0 +1,4962 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "endpoint": "https://mzkzbztaqbgxlted.us-east-1.aws.endpoints.huggingface.cloud",
+  "test_date": "2025-12-09T21:51:35.357434",
+  "task": "multiple",
+  "total": 200,
+  "correct": 91,
+  "success_rate": 45.5,
+  "results": [
+    {
+      "id": "multiple_0",
+      "question": "Can I find the dimensions and properties of a triangle, if I know its three sides are 5 units, 4 units and 3 units long?",
+      "model_response": "triangle_properties.get(side1=5, side2=4, side3=3)",
+      "ground_truth": [
+        {
+          "triangle_properties.get": {
+            "side1": [
+              5
+            ],
+            "side2": [
+              4
+            ],
+            "side3": [
+              3
+            ],
+            "get_area": [
+              "",
+              true
+            ],
+            "get_perimeter": [
+              "",
+              true
+            ],
+            "get_angles": [
+              "",
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_1",
+      "question": "Calculate the area of a triangle, given the lengths of its three sides: 3, 4, and 5.",
+      "model_response": "math.triangle_area_heron(side1=3, side2=4, side3=5)",
+      "ground_truth": [
+        {
+          "math.triangle_area_heron": {
+            "side1": [
+              3
+            ],
+            "side2": [
+              4
+            ],
+            "side3": [
+              5
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_2",
+      "question": "What is the capital of Brazil?",
+      "model_response": "function_name(country=Brazil)",
+      "ground_truth": [
+        {
+          "country_info.capital": {
+            "country": [
+              "Brazil"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_3",
+      "question": "Compute the Euclidean distance between two points A(3,4) and B(1,2).",
+      "model_response": "function_name(EuclideanDistance.calculate(pointA=[3, 4], pointB=[1, 2]))",
+      "ground_truth": [
+        {
+          "EuclideanDistance.calculate": {
+            "pointA": [
+              [
+                3,
+                4
+              ]
+            ],
+            "pointB": [
+              [
+                1,
+                2
+              ]
+            ],
+            "rounding": [
+              "",
+              0
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_4",
+      "question": "Can you calculate the displacement of a car moving at an initial speed of 20 m/s and then accelerates at 10 m/s^2 for 5 seconds? (assuming a straight line motion)",
+      "model_response": " kinematics.calculate_displacement(initial_speed=20, acceleration=10, time=5)",
+      "ground_truth": [
+        {
+          "kinematics.calculate_displacement": {
+            "initial_speed": [
+              20
+            ],
+            "acceleration": [
+              10
+            ],
+            "time": [
+              5
+            ],
+            "rounding": [
+              "",
+              2
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_5",
+      "question": "What is the wind speed and temperature in location given by coordinates 46.603354,1.8883340 on December 13, 2019?",
+      "model_response": "weather.get_by_coordinates_date(coordinates=(46.603354, 1.888334), date='2019-12-13')",
+      "ground_truth": [
+        {
+          "weather.get_by_coordinates_date": {
+            "coordinates": [
+              [
+                46.603354,
+                1.888334
+              ]
+            ],
+            "date": [
+              "2019-12-13"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_6",
+      "question": "Calculate the capacitance of a parallel plate capacitor where the area of the plate is 10 square meters, the distance between plates is 0.01 meters and the dielectric constant K is 1.0.",
+      "model_response": "capacitance_calculator.calculate(A=10, d=0.01)",
+      "ground_truth": [
+        {
+          "capacitance_calculator.calculate": {
+            "A": [
+              10
+            ],
+            "d": [
+              0.01
+            ],
+            "K": [
+              1.0,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_7",
+      "question": "How to assess the population growth in deer and their impact on woodland in Washington state over the past decade?",
+      "model_response": "function_name(wildlife_population.assess_growth(species=\"deer\", location=\"Washington state\", duration=10), ecological_impact.analyze(species=\"deer\", ecosystem=\"woodland\", location=\"Washington state\", timeframe=10))",
+      "ground_truth": [
+        {
+          "wildlife_population.assess_growth": {
+            "species": [
+              "deer",
+              "Deer"
+            ],
+            "location": [
+              "Washington state",
+              "WA",
+              "Washington"
+            ],
+            "duration": [
+              10
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_8",
+      "question": "Find a 3 bedroom villa for sale within $300,000 to $400,000 budget in San Diego.",
+      "model_response": "realestate.find_properties(location=\"San Diego, CA\", propertyType=\"villa\", bedrooms=3, budget={\"min\": 300000, \"max\": 400000})",
+      "ground_truth": [
+        {
+          "realestate.find_properties": {
+            "location": [
+              "SD",
+              "San Diego",
+              "San Diego, CA",
+              "CA"
+            ],
+            "propertyType": [
+              "villa"
+            ],
+            "bedrooms": [
+              3
+            ],
+            "budget": [
+              {
+                "min": [
+                  300000
+                ],
+                "max": [
+                  400000
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_9",
+      "question": "Calculate the average grade for student John who has these scores {'math':90, 'science':75, 'history':82, 'music':89} across different subjects.",
+      "model_response": "calculate_average(gradeDict={'math':90,'science':75, 'history':82,'music':89})",
+      "ground_truth": [
+        {
+          "calculate_average": {
+            "gradeDict": [
+              {
+                "math": [
+                  90
+                ],
+                "science": [
+                  75
+                ],
+                "history": [
+                  82
+                ],
+                "music": [
+                  89
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_10",
+      "question": "I need to delete some columns from my employees database on personal_data table. I want to remove their email addresses and social security numbers to respect privacy.",
+      "model_response": "database.modify_columns(db_name=\"employees\", table=\"personal_data\", operation=\"delete\", columns=[\"email\", \"social_security_number\"])",
+      "ground_truth": [
+        {
+          "database.modify_columns": {
+            "db_name": [
+              "employees"
+            ],
+            "table": [
+              "personal_data"
+            ],
+            "operation": [
+              "delete"
+            ],
+            "columns": [
+              [
+                "email",
+                "ssn"
+              ],
+              [
+                "ssn",
+                "email"
+              ],
+              [
+                "email",
+                "social_security_number"
+              ],
+              [
+                "social_security_number",
+                "email"
+              ],
+              [
+                "email",
+                "social security number"
+              ],
+              [
+                "social security number",
+                "email"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_11",
+      "question": "Calculate the roots of a quadratic equation with coefficients 5, 20, and -25",
+      "model_response": "math_roots.quadratic(a=5, b=20, c=-25)",
+      "ground_truth": [
+        {
+          "math_roots.quadratic": {
+            "a": [
+              5
+            ],
+            "b": [
+              20
+            ],
+            "c": [
+              -25
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_12",
+      "question": "What is the year over year growth rate for company 'Tech Inc' with revenues of $1M in 2019 and $1.2M in 2020?",
+      "model_response": "function_name(corporate_finance.calculate_YOY_growth_rate, company_name=\"Tech Inc\", year1=2019, year1_revenue=1000000, year2=2020, year2_revenue=1200000)",
+      "ground_truth": [
+        {
+          "corporate_finance.calculate_YOY_growth_rate": {
+            "company_name": [
+              "Tech Inc"
+            ],
+            "year1": [
+              2019
+            ],
+            "year1_revenue": [
+              1000000
+            ],
+            "year2": [
+              2020
+            ],
+            "year2_revenue": [
+              1200000
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_13",
+      "question": "How much revenue would company XYZ generate if we increase the sales units of product A by 10% while keeping the price the same?",
+      "model_response": "function_name(revenue_forecast=company=XYZ, product=A, sales_units_increase_percentage=10)",
+      "ground_truth": [
+        {
+          "corporate_finance.revenue_forecast": {
+            "company": [
+              "XYZ"
+            ],
+            "product": [
+              "A",
+              "Product A"
+            ],
+            "sales_units_increase_percentage": [
+              10
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_14",
+      "question": "Calculate the depreciated value of a property costing $200,000 with an annual depreciation rate of 3% for 5 years.",
+      "model_response": "finance.property_depreciation(initial_cost=200000, depreciation_rate=3, years=5)",
+      "ground_truth": [
+        {
+          "finance.property_depreciation": {
+            "initial_cost": [
+              200000
+            ],
+            "depreciation_rate": [
+              3
+            ],
+            "years": [
+              5
+            ],
+            "monthly": [
+              false,
+              true,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_15",
+      "question": "How much is the potential of the Solar farm at location with coordinates [43.653225, -79.383186] in December, given that it has a total solar panel area of 80000 sq ft?",
+      "model_response": "function_name(solarFarm.potential(coordinates=[43.653225, -79.383186], panelArea=80000, month=\"December\"))",
+      "ground_truth": [
+        {
+          "solarFarm.potential": {
+            "coordinates": [
+              [
+                43.653225,
+                -79.383186
+              ]
+            ],
+            "panelArea": [
+              80000
+            ],
+            "month": [
+              "December",
+              "Dec"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_16",
+      "question": "What's the required minimum population size (Ne) for maintaining the genetic diversity of a wild tiger population for the next 100 generations with a probability of 0.95?",
+      "model_response": "population_genetics.calculate_ne(species='tiger', generations=100, probability=0.95)",
+      "ground_truth": [
+        {
+          "population_genetics.calculate_ne": {
+            "species": [
+              "wild tiger",
+              "tiger"
+            ],
+            "generations": [
+              100
+            ],
+            "probability": [
+              0.95
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_17",
+      "question": "Find the conversion rate from Euro to Dollar at January 1, 2022",
+      "model_response": "currency_conversion.get_rate(from_currency=\"Euro\", to_currency=\"Dollar\", date=\"2022-01-01\")",
+      "ground_truth": [
+        {
+          "currency_conversion.get_rate": {
+            "from_currency": [
+              "EUR",
+              "Euro"
+            ],
+            "to_currency": [
+              "Dollar",
+              "USD"
+            ],
+            "date": [
+              "2022-01-01",
+              "01/01/2022",
+              "1/1/2022",
+              "Jan.1,2022",
+              "January 1, 2022",
+              "2022-1-1"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_18",
+      "question": "Who were the main participants and what was the location of the Battle of Stalingrad?",
+      "model_response": "function_name(battle=\"Battle of Stalingrad\")",
+      "ground_truth": [
+        {
+          "european_history.battle_details": {
+            "battle": [
+              "Battle of Stalingrad",
+              "Stalingrad"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_19",
+      "question": "What are the three great Schism in Christianity history?",
+      "model_response": "function_name(get_schisms, religion=Christianity, count=3)",
+      "ground_truth": [
+        {
+          "religion_history.get_schisms": {
+            "religion": [
+              "Christianity"
+            ],
+            "count": [
+              3
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_20",
+      "question": "What is the price to commission a sculpture made of marble with a size of 3 feet?",
+      "model_response": "sculpture_price.calculate(material=\"marble\", size=3)",
+      "ground_truth": [
+        {
+          "sculpture_price.calculate": {
+            "material": [
+              "marble"
+            ],
+            "size": [
+              3
+            ],
+            "complexity": [
+              "medium",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_21",
+      "question": "I want to generate a sound of 440Hz frequency for 5 seconds. What is the function and how can I use it?",
+      "model_response": " generate_sound_wave(frequency=440, duration=5)",
+      "ground_truth": [
+        {
+          "generate_sound_wave": {
+            "frequency": [
+              440
+            ],
+            "duration": [
+              5
+            ],
+            "wave_type": [
+              "sine",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_22",
+      "question": "What is the record for the most points scored by a single player in an NBA game?",
+      "model_response": "function_name(sports_data.basketball.most_points_single_game)",
+      "ground_truth": [
+        {
+          "sports_data.basketball.most_points_single_game": {
+            "league": [
+              "NBA"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_23",
+      "question": "What are the current stats for basketball player LeBron James including points per game, assists, and minutes per game.",
+      "model_response": "function_name(player_stats.get, player_name=LeBron James, stats_fields=['points', 'assists','minutes'])",
+      "ground_truth": [
+        {
+          "basketball.player_stats.get": {
+            "player_name": [
+              "LeBron James"
+            ],
+            "stats_fields": [
+              [
+                "points per game",
+                "assists",
+                "minutes per game"
+              ],
+              [
+                "points per game",
+                "minutes per game",
+                "assists"
+              ],
+              [
+                "assists",
+                "points per game",
+                "minutes per game"
+              ],
+              [
+                "assists",
+                "minutes per game",
+                "points per game"
+              ],
+              [
+                "minutes per game",
+                "points per game",
+                "assists"
+              ],
+              [
+                "minutes per game",
+                "assists",
+                "points per game"
+              ],
+              [
+                "points",
+                "assists",
+                "minutes"
+              ],
+              [
+                "points",
+                "minutes",
+                "assists"
+              ],
+              [
+                "assists",
+                "points",
+                "minutes"
+              ],
+              [
+                "assists",
+                "minutes",
+                "points"
+              ],
+              [
+                "minutes",
+                "points",
+                "assists"
+              ],
+              [
+                "minutes",
+                "assists",
+                "points"
+              ],
+              [
+                "points_per_game",
+                "assists",
+                "minutes_per_game"
+              ],
+              [
+                "points_per_game",
+                "minutes_per_game",
+                "assists"
+              ],
+              [
+                "assists",
+                "points_per_game",
+                "minutes_per_game"
+              ],
+              [
+                "assists",
+                "minutes_per_game",
+                "points_per_game"
+              ],
+              [
+                "minutes_per_game",
+                "points_per_game",
+                "assists"
+              ],
+              [
+                "minutes_per_game",
+                "assists",
+                "points_per_game"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_24",
+      "question": "What is the fastest route from London to Edinburgh for playing a chess championship? Also provide an estimate of the distance.",
+      "model_response": "function_name(route_planner.calculate_route(start=\"London\", destination=\"Edinburgh\", method=\"fastest\"))",
+      "ground_truth": [
+        {
+          "route_planner.calculate_route": {
+            "start": [
+              "London"
+            ],
+            "destination": [
+              "Edinburgh"
+            ],
+            "method": [
+              "fastest",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_25",
+      "question": "What is the cheapest selling price for the game 'Assassins Creed Valhalla' in the PlayStation Store in the United States?",
+      "model_response": "function_name(video_games.store_price(game_title='Assassins Creed Valhalla', platform='PlayStation', region='United States'))",
+      "ground_truth": [
+        {
+          "video_games.store_price": {
+            "game_title": [
+              "Assassins Creed Valhalla"
+            ],
+            "platform": [
+              "PlayStation",
+              "PS"
+            ],
+            "region": [
+              "United States",
+              "US",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_26",
+      "question": "Find out the rewards for playing Fortnite on Playstation platform with different missions and trophies",
+      "model_response": "function_name(game_rewards.get(game=\"Fortnite\", platform=\"Playstation\", mission=None, trophy=None))",
+      "ground_truth": [
+        {
+          "game_rewards.get": {
+            "game": [
+              "Fortnite"
+            ],
+            "platform": [
+              "Playstation",
+              "PS"
+            ],
+            "mission": [
+              ""
+            ],
+            "trophy": [
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_27",
+      "question": "What is the shortest path from Paris, France to Rome, Italy by using a public transportation?",
+      "model_response": "maps.shortest_path(start_location=\"Paris, France\", end_location=\"Rome, Italy\", mode=\"transit\")",
+      "ground_truth": [
+        {
+          "maps.shortest_path": {
+            "start_location": [
+              "Paris, France",
+              "Paris"
+            ],
+            "end_location": [
+              "Rome, Italy",
+              "Rome"
+            ],
+            "mode": [
+              "transit"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_28",
+      "question": "What's the root of quadratic equation with coefficients 2, 3 and -4?",
+      "model_response": "solve.quadratic_equation(a=2, b=3, c=-4)",
+      "ground_truth": [
+        {
+          "solve.quadratic_equation": {
+            "a": [
+              2
+            ],
+            "b": [
+              3
+            ],
+            "c": [
+              -4
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_29",
+      "question": "Find the intersection points of the functions y=3x+2 and y=2x+3.",
+      "model_response": "functions.intersect(function1='3*x+2', function2='2*x+3')",
+      "ground_truth": [
+        {
+          "functions.intersect": {
+            "function1": [
+              "3x + 2",
+              "lambda x: 3x + 2"
+            ],
+            "function2": [
+              "2x + 3",
+              "lambda x: 2x + 3"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_30",
+      "question": "What is the area of a rectangle with length 12 meters and width 5 meters?",
+      "model_response": "rectangle.area(length=12, width=5)",
+      "ground_truth": [
+        {
+          "rectangle.area": {
+            "length": [
+              12
+            ],
+            "width": [
+              5
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_31",
+      "question": "What is the area and perimeter of a rectangle with width of 7 units and length of 10 units?",
+      "model_response": "geometry_rectangle.calculate(width=7, length=10)",
+      "ground_truth": [
+        {
+          "geometry_rectangle.calculate": {
+            "width": [
+              7
+            ],
+            "length": [
+              10
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_32",
+      "question": "Calculate the volume of a cone with radius 4 and height 7.",
+      "model_response": "geometry.calculate_cone_volume(radius=4, height=7)",
+      "ground_truth": [
+        {
+          "geometry.calculate_cone_volume": {
+            "radius": [
+              4
+            ],
+            "height": [
+              7
+            ],
+            "round_off": [
+              "",
+              0
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_33",
+      "question": "Find the integral of the function f(x) = 3x^2 from 1 to 2.",
+      "model_response": "calculate_integral(func='3*x**2', a=1, b=2)",
+      "ground_truth": [
+        {
+          "calculate_integral": {
+            "func": [
+              "3x**2",
+              "lambda x: 3x**2"
+            ],
+            "a": [
+              1
+            ],
+            "b": [
+              2
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_34",
+      "question": "Calculate the Least Common Multiple (LCM) of 18 and 12.",
+      "model_response": "math.lcm(num1=18, num2=12)",
+      "ground_truth": [
+        {
+          "math.lcm": {
+            "num1": [
+              18
+            ],
+            "num2": [
+              12
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_35",
+      "question": "Calculate the greatest common divisor between 128 and 256.",
+      "model_response": "calculate_gcd(num1=128, num2=256)",
+      "ground_truth": [
+        {
+          "calculate_gcd": {
+            "num1": [
+              128
+            ],
+            "num2": [
+              256
+            ],
+            "algorithm": [
+              "euclidean",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_36",
+      "question": "Find out how fast an object was going if it started from rest and traveled a distance of 20 meters over 4 seconds due to a constant acceleration?",
+      "model_response": "kinematics.calculate_speed_from_rest(distance=20, time=4)",
+      "ground_truth": [
+        {
+          "kinematics.calculate_speed_from_rest": {
+            "distance": [
+              20
+            ],
+            "time": [
+              4
+            ],
+            "initial_speed": [
+              0,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_37",
+      "question": "Find the final velocity of an object thrown up at 40 m/s after 6 seconds.",
+      "model_response": "kinematics.final_velocity(initial_velocity=40, time=6)",
+      "ground_truth": [
+        {
+          "kinematics.final_velocity": {
+            "initial_velocity": [
+              40
+            ],
+            "time": [
+              6
+            ],
+            "acceleration": [
+              -9.81,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_38",
+      "question": "Find a book 'The Alchemist' in the library branches within New York city.",
+      "model_response": "library.search_book(book_name=The%20Alchemist, city=New%20York)",
+      "ground_truth": [
+        {
+          "library.search_book": {
+            "book_name": [
+              "The Alchemist"
+            ],
+            "city": [
+              "New York",
+              "New York, NY",
+              "New York City",
+              "NYC",
+              "NY"
+            ],
+            "availability": [
+              "",
+              false
+            ],
+            "genre": [
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_39",
+      "question": "Find a ride from New York to Philadelphia with maximum cost of $50",
+      "model_response": "ride_hailing.get_rides(source=\"New York\", destination=\"Philadelphia\", max_cost=50)",
+      "ground_truth": [
+        {
+          "ride_hailing.get_rides": {
+            "source": [
+              "New York",
+              "New York, NY",
+              "New York City",
+              "NYC",
+              "NY"
+            ],
+            "destination": [
+              "Philadelphia"
+            ],
+            "max_cost": [
+              50
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_40",
+      "question": "Calculate the strength of magnetic field given distance is 8 meters and current is 12 Amperes?",
+      "model_response": "electromagnetism.biot_savart_law(current=12, distance=8)",
+      "ground_truth": [
+        {
+          "electromagnetism.biot_savart_law": {
+            "current": [
+              12
+            ],
+            "distance": [
+              8
+            ],
+            "mu0": [
+              1.256e-06,
+              1.256e-06,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_41",
+      "question": "Calculate the magnetic field at point P using Ampere’s law where current I is 10 Amperes and r is 0.01 meter.",
+      "model_response": " magnetic_field.calculate(I=10, r=0.01)",
+      "ground_truth": [
+        {
+          "magnetic_field.calculate": {
+            "I": [
+              10
+            ],
+            "r": [
+              0.01
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_42",
+      "question": "Calculate the final temperature when 2 moles of gas at 300 K are mixed with 3 moles of the same gas at 400 K.",
+      "model_response": "calculate_final_temperature(quantity1=2, temperature1=300, quantity2=3, temperature2=400)",
+      "ground_truth": [
+        {
+          "calculate_final_temperature": {
+            "quantity1": [
+              2
+            ],
+            "temperature1": [
+              300
+            ],
+            "quantity2": [
+              3
+            ],
+            "temperature2": [
+              400
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_43",
+      "question": "What is the energy produced by 5 mol of glucose (C6H12O6)?",
+      "model_response": "function_name(mols=5, substance=\"C6H12O6\")",
+      "ground_truth": [
+        {
+          "biological.calc_energy": {
+            "mols": [
+              5
+            ],
+            "substance": [
+              "C6H12O6"
+            ],
+            "joules_per_mol": [
+              2800,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_44",
+      "question": "How much will I weigh on Mars if my weight on Earth is 70 kg?",
+      "model_response": "calculate.weight_in_space(weight_earth_kg=70, planet=\"Mars\")",
+      "ground_truth": [
+        {
+          "calculate.weight_in_space": {
+            "weight_earth_kg": [
+              70
+            ],
+            "planet": [
+              "Mars"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_45",
+      "question": "Calculate how many years ago was the Ice age?",
+      "model_response": "geology.get_era(era_name=\"Ice age\", calculate_years_ago=True)",
+      "ground_truth": [
+        {
+          "geology.get_era": {
+            "era_name": [
+              "Ice age"
+            ],
+            "calculate_years_ago": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_46",
+      "question": "Sort this list of names in ascending order: ['Sam', 'Alice', 'Jack']",
+      "model_response": "sort_list(elements=['Sam', 'Alice', 'Jack'], order='asc')",
+      "ground_truth": [
+        {
+          "sort_list": {
+            "elements": [
+              [
+                "Sam",
+                "Alice",
+                "Jack"
+              ]
+            ],
+            "order": [
+              "asc",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_47",
+      "question": "Calculate the cosine similarity between vector A [3, 2, 1] and vector B [1, 2, 3].",
+      "model_response": "function_name(cosine_similarity.calculate(vector1=[3, 2, 1], vector2=[1, 2, 3]))",
+      "ground_truth": [
+        {
+          "cosine_similarity.calculate": {
+            "vector1": [
+              [
+                3,
+                2,
+                1
+              ]
+            ],
+            "vector2": [
+              [
+                1,
+                2,
+                3
+              ]
+            ],
+            "rounding": [
+              "",
+              0
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_48",
+      "question": "Find me a pet-friendly library with facilities for disabled people in New York City.",
+      "model_response": "library.find_nearby(location=\"New York City\", preferences=[\"Pet-friendly\", \"Disabled Access\"])",
+      "ground_truth": [
+        {
+          "library.find_nearby": {
+            "location": [
+              "New York City",
+              "NYC",
+              "New York City, NY"
+            ],
+            "preferences": [
+              [
+                "Pet-friendly",
+                "Disabled Access"
+              ],
+              [
+                "Disabled Access",
+                "Pet-friendly"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_49",
+      "question": "Calculate the compound interest for an amount of 1500 for a duration of 2 years with an annual interest rate of 2.5%.",
+      "model_response": "calc_Compound_Interest(principle_amount=1500, duration=2, annual_rate=2.5)",
+      "ground_truth": [
+        {
+          "calc_Compound_Interest": {
+            "principle_amount": [
+              1500
+            ],
+            "duration": [
+              2
+            ],
+            "annual_rate": [
+              2.5
+            ],
+            "compound_freq": [
+              "",
+              1
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_50",
+      "question": "Predict the house prices for the next month in New York.",
+      "model_response": "function_name(house_price_forecast(location=\"New York\", months=1))",
+      "ground_truth": [
+        {
+          "house_price_forecast": {
+            "location": [
+              "New York",
+              "New York, NY",
+              "NYC",
+              "New York City"
+            ],
+            "months": [
+              1
+            ],
+            "features": [
+              [],
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_51",
+      "question": "Calculate the probability of rolling a sum of 7 on a roll of two dice.",
+      "model_response": "function_name(dice_roll_probability(desired_sum=7))",
+      "ground_truth": [
+        {
+          "dice_roll_probability": {
+            "desired_sum": [
+              7
+            ],
+            "sides_per_die": [
+              6
+            ],
+            "n_rolls": [
+              2
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_52",
+      "question": "I have 100 euro. How much is it in USD?",
+      "model_response": "currency_conversion(amount=100, from_currency='euro', to_currency='USD')",
+      "ground_truth": [
+        {
+          "currency_conversion": {
+            "amount": [
+              100
+            ],
+            "from_currency": [
+              "Euro",
+              "EUR"
+            ],
+            "to_currency": [
+              "USD",
+              "US Dollar"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_53",
+      "question": "Predict the house prices for next 5 years based on interest rates and unemployment rates.",
+      "model_response": "linear_regression(independent_var=['interest_rates', 'unemployment_rates'], dependent_var='house_prices', forecast_period=5)",
+      "ground_truth": [
+        {
+          "linear_regression": {
+            "independent_var": [
+              [
+                "interest rates",
+                "unemployment rates"
+              ],
+              [
+                "interest_rate",
+                "unemployment_rate"
+              ],
+              [
+                "interest rate",
+                "unemployment rate"
+              ]
+            ],
+            "dependent_var": [
+              "house_price",
+              "house price"
+            ],
+            "forecast_period": [
+              5
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_54",
+      "question": "Find out the historical dividend payments of Apple Inc for last five years.",
+      "model_response": "function_name(dividend_data(company=\"Apple Inc\", years=5))",
+      "ground_truth": [
+        {
+          "corporate_finance.dividend_data": {
+            "company": [
+              "Apple Inc",
+              "Apple",
+              "Apple Inc."
+            ],
+            "years": [
+              5
+            ],
+            "frequency": [
+              "",
+              "annually"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_55",
+      "question": "Predict the stock price for Google for the next 3 days.",
+      "model_response": "function_name(company=\"Google\", days=3)",
+      "ground_truth": [
+        {
+          "stock_forecast": {
+            "company": [
+              "Google",
+              "GOOG"
+            ],
+            "days": [
+              3
+            ],
+            "model": [
+              "",
+              "regression"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_56",
+      "question": "Find the average closing price of Apple stock in the past 60 days",
+      "model_response": "function_name(avg_closing_price(company=\"Apple\", days=60))",
+      "ground_truth": [
+        {
+          "avg_closing_price": {
+            "company": [
+              "Apple"
+            ],
+            "days": [
+              60
+            ],
+            "data_source": [
+              "yahoo finance",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_57",
+      "question": "Can you please calculate the compound interest for a principle of $1000, annual rate of 5% over 10 years with 4 compound per year.",
+      "model_response": "financial.compound_interest(principle=1000, rate=0.05, time=10, n=4)",
+      "ground_truth": [
+        {
+          "financial.compound_interest": {
+            "principle": [
+              1000
+            ],
+            "rate": [
+              0.05
+            ],
+            "time": [
+              10
+            ],
+            "n": [
+              4
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_58",
+      "question": "Search for divorce law specialists in Los Angeles",
+      "model_response": "lawyer.search(location=\"Los Angeles\", expertise=\"Divorce\")",
+      "ground_truth": [
+        {
+          "lawyer.search": {
+            "location": [
+              "Los Angeles",
+              "Los Angeles, CA",
+              "LA"
+            ],
+            "expertise": [
+              "Divorce"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_59",
+      "question": "Find lawyers specializing in criminal law near me in New York.",
+      "model_response": "lawyer_finder(location=\"New York\", specialization=[\"criminal law\"])",
+      "ground_truth": [
+        {
+          "lawyer_finder": {
+            "location": [
+              "New York",
+              "New York, NY",
+              "NY",
+              "New York City",
+              "NYC"
+            ],
+            "specialization": [
+              [
+                "Criminal Law"
+              ],
+              [
+                "criminal law"
+              ]
+            ],
+            "experience": [
+              "",
+              1
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_60",
+      "question": "What will be the humidity and temperature for New York City after 7 days?",
+      "model_response": "humidity_temperature_forecast(location=\"New York City\", days=7)",
+      "ground_truth": [
+        {
+          "humidity_temperature_forecast": {
+            "location": [
+              "New York City",
+              "NYC"
+            ],
+            "days": [
+              7
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_61",
+      "question": "Find a Landscape Architect who is experienced 5 years in small space garden design in Portland",
+      "model_response": "function_name(landscape_architect.find_specialty(location=\"Portland\", specialization=\"small space garden design\", years_experience=5))",
+      "ground_truth": [
+        {
+          "landscape_architect.find_specialty": {
+            "location": [
+              "Portland",
+              "Portland, OR"
+            ],
+            "specialization": [
+              "small space garden design"
+            ],
+            "years_experience": [
+              5
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_62",
+      "question": "Find me the closest nature park that allows camping and has scenic views in Boston, MA.",
+      "model_response": " function_name(nature_park.find_nearby(location=\"Boston, MA\", features=[\"Camping\", \"Scenic View\"]))",
+      "ground_truth": [
+        {
+          "nature_park.find_nearby": {
+            "location": [
+              "Boston, MA",
+              "Boston"
+            ],
+            "features": [
+              [
+                "Camping",
+                "Scenic View"
+              ],
+              [
+                "Scenic View",
+                "Camping"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_63",
+      "question": "What will be the air quality index of New York for the next week?",
+      "model_response": "air_quality_forecast(location=\"New York\", days=7)",
+      "ground_truth": [
+        {
+          "air_quality_forecast": {
+            "location": [
+              "New York",
+              "New York, NY",
+              "New York City",
+              "NYC"
+            ],
+            "days": [
+              7
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_64",
+      "question": "Give me the UV index for Tokyo for tomorrow, June01 2023.",
+      "model_response": "function_name(location=\"Tokyo\", date=\"06-01-2023\", function=\"uv_index.get_future\")",
+      "ground_truth": [
+        {
+          "uv_index.get_future": {
+            "location": [
+              "Tokyo"
+            ],
+            "date": [
+              "06-01-2023"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_65",
+      "question": "Find the distance between New York City and Los Angeles.",
+      "model_response": "geodistance.find(origin=\"New York City\", destination=\"Los Angeles\")",
+      "ground_truth": [
+        {
+          "geodistance.find": {
+            "origin": [
+              "New York City",
+              "NYC"
+            ],
+            "destination": [
+              "Los Angeles",
+              "LA"
+            ],
+            "unit": [
+              "miles",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_66",
+      "question": "How much traffic should I expect from Las Vegas to Los Angeles this weekend?",
+      "model_response": "traffic_estimate(start_location=\"Las Vegas\", end_location=\"Los Angeles\", time_period=\"weekend\")",
+      "ground_truth": [
+        {
+          "traffic_estimate": {
+            "start_location": [
+              "Las Vegas"
+            ],
+            "end_location": [
+              "Los Angeles"
+            ],
+            "time_period": [
+              "weekend"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_67",
+      "question": "Translate Hello, how are you? from English to French.",
+      "model_response": "translate(text=\"Hello, how are you?\", source_language=\"English\", target_language=\"French\")",
+      "ground_truth": [
+        {
+          "translate": {
+            "text": [
+              "Hello, how are you?"
+            ],
+            "source_language": [
+              "English"
+            ],
+            "target_language": [
+              "French"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_68",
+      "question": "Can I find a historical fiction book at the New York public library?",
+      "model_response": "library.search_books(location=\"New York public library\", genre=\"historical fiction\")",
+      "ground_truth": [
+        {
+          "library.search_books": {
+            "location": [
+              "New York",
+              "New York, NY",
+              "New York City",
+              "New York City, NY",
+              "NYC",
+              "New York public library"
+            ],
+            "genre": [
+              "Historical Fiction",
+              "historical fiction"
+            ],
+            "title": [
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_69",
+      "question": "Determine my personality type based on the five factor model with given information: I'm talkative, gets nervous easily, has few artistic interests, tend to be lazy and has a forgiving nature.",
+      "model_response": "five_factor_model.analyse(talkative=True, nervous=True, artistic_interests=False, lazy=True, forgiving=True)",
+      "ground_truth": [
+        {
+          "five_factor_model.analyse": {
+            "talkative": [
+              true
+            ],
+            "nervous": [
+              true
+            ],
+            "artistic_interests": [
+              false
+            ],
+            "lazy": [
+              true
+            ],
+            "forgiving": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_70",
+      "question": "Who were the kings of France during the 18th century?",
+      "model_response": "function_name(get_monarchs, country=\"France\", century=18)",
+      "ground_truth": [
+        {
+          "european_history.get_monarchs": {
+            "country": [
+              "France"
+            ],
+            "century": [
+              18
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_71",
+      "question": "How many veterans were there in the United States in the year 1954?",
+      "model_response": "get_population(year=1954, category=\"veterans\")",
+      "ground_truth": [
+        {
+          "get_population": {
+            "year": [
+              1954
+            ],
+            "category": [
+              "veterans"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_72",
+      "question": "What was the population of California in 1970?",
+      "model_response": "function_name(us_history.population_by_state_year, state=\"California\", year=1970)",
+      "ground_truth": [
+        {
+          "us_history.population_by_state_year": {
+            "state": [
+              "California",
+              "CA"
+            ],
+            "year": [
+              1970
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_73",
+      "question": "Who was the founder of Buddhism and where was it originated?",
+      "model_response": "function_name(religion=\"Buddhism\", function=religion.get_origin)",
+      "ground_truth": [
+        {
+          "religion.get_origin": {
+            "religion": [
+              "Buddhism"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_74",
+      "question": "Find the price of Van Gogh's painting 'Starry Night' on all auction platforms.",
+      "model_response": " function_name(artwork_name=\"Starry Night\", artist=\"Van Gogh\")",
+      "ground_truth": [
+        {
+          "art_auction.fetch_artwork_price": {
+            "artwork_name": [
+              "Starry Night"
+            ],
+            "artist": [
+              "Van Gogh"
+            ],
+            "platform": [
+              "all",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_75",
+      "question": "Which paint color is currently most popular for living rooms?",
+      "model_response": "paint_color.trends(room='Living room')",
+      "ground_truth": [
+        {
+          "paint_color.trends": {
+            "room": [
+              "living room",
+              "Living room"
+            ],
+            "period": [
+              "",
+              "Daily"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_76",
+      "question": "I want to order a custom bronze sculpture of a horse. What material options are available?",
+      "model_response": " sculpture.create_custom(material=\"Bronze\")",
+      "ground_truth": [
+        {
+          "sculpture.create_custom": {
+            "item": [
+              "horse",
+              "Horse"
+            ],
+            "material": [
+              "Bronze",
+              "bronze"
+            ],
+            "size": [
+              "",
+              12
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_77",
+      "question": "Search for famous contemporary sculptures in New York.",
+      "model_response": "function_artwork_search.find(type=\"sculpture\", location=\"New York\", era=\"contemporary\")",
+      "ground_truth": [
+        {
+          "artwork_search.find": {
+            "type": [
+              "sculpture"
+            ],
+            "location": [
+              "New York",
+              "New York, NY",
+              "New York City",
+              "NYC"
+            ],
+            "era": [
+              "contemporary",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_78",
+      "question": "Get me information about Natural History Museum in London including timings, exhibitions, and accessibility.",
+      "model_response": "function_name(museum='Natural History Museum', city='London', features='timings, exhibitions, accessibility')",
+      "ground_truth": [
+        {
+          "museum_info": {
+            "museum": [
+              "Natural History Museum"
+            ],
+            "city": [
+              "London"
+            ],
+            "features": [
+              [
+                "timings",
+                "exhibitions",
+                "accessibility"
+              ],
+              [
+                "exhibitions",
+                "timings",
+                "accessibility"
+              ],
+              [
+                "exhibitions",
+                "accessibility",
+                "timings"
+              ],
+              [
+                "accessibility",
+                "timings",
+                "exhibitions"
+              ],
+              [
+                "accessibility",
+                "exhibitions",
+                "timings"
+              ],
+              [
+                "timings",
+                "accessibility",
+                "exhibitions"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_79",
+      "question": "Find art exhibitions for the upcoming month in the Museum of Modern Art, New York.",
+      "model_response": "exhibition_info(museum_name=\"Museum of Modern Art\", month=1)",
+      "ground_truth": [
+        {
+          "exhibition_info": {
+            "museum_name": [
+              "Museum of Modern Art",
+              "MOMA",
+              "Museum of Modern Art, New York"
+            ],
+            "month": [
+              "",
+              1
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_80",
+      "question": "Find a local guitar shop that also offers violin lessons in Nashville.",
+      "model_response": " function_name(find_nearby(location=\"Nashville, TN\", services=[\"Violin Lessons\"], instruments=[\"Guitars\"]))",
+      "ground_truth": [
+        {
+          "music_shop.find_nearby": {
+            "location": [
+              "Nashville, TN",
+              "Nashville"
+            ],
+            "services": [
+              [
+                "Violin Lessons"
+              ]
+            ],
+            "instruments": [
+              [
+                "Guitars"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_81",
+      "question": "Book a ticket for the upcoming Eminem concert in New York City, I would like to get the one with backstage access.",
+      "model_response": " function_name(concert.book_ticket(artist=\"Eminem\", location=\"New York City\", add_ons=[\"Backstage Pass\"]))",
+      "ground_truth": [
+        {
+          "concert.book_ticket": {
+            "artist": [
+              "Eminem"
+            ],
+            "location": [
+              "New York City",
+              "NYC"
+            ],
+            "add_ons": [
+              [
+                "Backstage Pass"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_82",
+      "question": "Play a song in C Major key at tempo 120 bpm.",
+      "model_response": " function_name(music.generate(key=\"C Major\", tempo=120))",
+      "ground_truth": [
+        {
+          "music.generate": {
+            "key": [
+              "C Major"
+            ],
+            "tempo": [
+              120
+            ],
+            "time_signature": [
+              "",
+              "4/4"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_83",
+      "question": "How many goals has Lionel Messi scored for Barcelona till date?",
+      "model_response": "player_stats.get_all_time_goals(player_name=\"Lionel Messi\", team_name=\"Barcelona\")",
+      "ground_truth": [
+        {
+          "player_stats.get_all_time_goals": {
+            "player_name": [
+              "Lionel Messi"
+            ],
+            "team_name": [
+              "Barcelona"
+            ],
+            "competition": [
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_84",
+      "question": "Give me the top 10 goal scorers in the UEFA Champions League from Barcelona team.",
+      "model_response": "function_name(getTopGoalScorers, competition=UEFA Champions League, team=Barcelona, number=10)",
+      "ground_truth": [
+        {
+          "getTopGoalScorers": {
+            "competition": [
+              "UEFA Champions League"
+            ],
+            "team": [
+              "Barcelona"
+            ],
+            "number": [
+              10
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_85",
+      "question": "Get the soccer scores for Real Madrid games in La Liga for the last 5 rounds.",
+      "model_response": "function_name(team='Real Madrid', league='La Liga', rounds=5)",
+      "ground_truth": [
+        {
+          "soccer_scores.get_scores": {
+            "team": [
+              "Real Madrid"
+            ],
+            "league": [
+              "La Liga"
+            ],
+            "rounds": [
+              5
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_86",
+      "question": "What are some recommended board games for 2 players and strategy based from store BoardGameGeek?",
+      "model_response": "function_name(BoardGameGeek.recommend, numPlayers=2, category=\"strategy\")",
+      "ground_truth": [
+        {
+          "BoardGameGeek.recommend": {
+            "numPlayers": [
+              2
+            ],
+            "category": [
+              "strategy"
+            ],
+            "difficulty": [
+              "",
+              "beginner"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_87",
+      "question": "Find the latest update or patch for the game 'Cyberpunk 2077' on Xbox platform.",
+      "model_response": "function_games.update.find(game='Cyberpunk 2077', platform='Xbox')",
+      "ground_truth": [
+        {
+          "games.update.find": {
+            "game": [
+              "Cyberpunk 2077"
+            ],
+            "platform": [
+              "Xbox"
+            ],
+            "region": [
+              "",
+              "global"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_88",
+      "question": "Find me the number of active players in the game 'World of Warcraft' in 2020.",
+      "model_response": "function_name(get_player_count(game_title='World of Warcraft', year=2020))",
+      "ground_truth": [
+        {
+          "video_games.get_player_count": {
+            "game_title": [
+              "World of Warcraft"
+            ],
+            "year": [
+              2020
+            ],
+            "platform": [
+              "",
+              "PC"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_89",
+      "question": "Find a healthy lunch recipe under 500 calories that uses chicken and mushrooms.",
+      "model_response": "recipe_search(ingredients=['chicken','mushrooms'], calories=500, meal='lunch')",
+      "ground_truth": [
+        {
+          "recipe_search": {
+            "ingredients": [
+              [
+                "chicken",
+                "mushrooms"
+              ],
+              [
+                "mushrooms",
+                "chicken"
+              ]
+            ],
+            "calories": [
+              500
+            ],
+            "meal": [
+              "lunch",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_90",
+      "question": "I want a seafood restaurant in Seattle that can accommodate a group of 5.",
+      "model_response": "function_name(restaurant.find_group(location=\"Seattle, WA\", cuisine=[\"Seafood\"], group_size=5))",
+      "ground_truth": [
+        {
+          "restaurant.find_group": {
+            "location": [
+              "Seattle",
+              "Seattle, WA"
+            ],
+            "cuisine": [
+              [
+                "Seafood"
+              ]
+            ],
+            "group_size": [
+              5
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_91",
+      "question": "Can I find a good cooking recipe for apple pie using less than 5 ingredients?",
+      "model_response": "function_name(recipe.find(mainIngredient=apple, ingredientLimit=5))",
+      "ground_truth": [
+        {
+          "recipe.find": {
+            "mainIngredient": [
+              "apple pie",
+              "apple"
+            ],
+            "ingredientLimit": [
+              4
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_92",
+      "question": "Get me a list of available vegetarian and gluten-free foods at the Walmart near Denver.",
+      "model_response": "walmart.vegan_products(location=\"Denver, CO\", categories=[\"vegetarian\", \"gluten-free\"])",
+      "ground_truth": [
+        {
+          "walmart.vegan_products": {
+            "location": [
+              "Denver, CO",
+              "Denver"
+            ],
+            "categories": [
+              [
+                "vegan",
+                "gluten-free"
+              ],
+              [
+                "gluten-free",
+                "vegan"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_93",
+      "question": "Book a deluxe room for 2 nights at the Marriott hotel in New York and add breakfast as an extra service",
+      "model_response": "hotel.book(location=\"New York\", roomType=\"deluxe\", nights=2, additional_services=[\"breakfast\"])",
+      "ground_truth": [
+        {
+          "hotel.book": {
+            "location": [
+              "New York",
+              "New York, NY",
+              "NYC"
+            ],
+            "roomType": [
+              "deluxe",
+              "Deluxe"
+            ],
+            "nights": [
+              2
+            ],
+            "additional_services": [
+              [
+                "breakfast"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_94",
+      "question": "I want to book a suite with queen size bed for 3 nights in Hilton New York. Can you find the pricing for me?",
+      "model_response": "function_name(hotelRoomPricing.get, hotelName=Hilton New York, roomType=suite, nights=3)",
+      "ground_truth": [
+        {
+          "hotel_room_pricing.get": {
+            "hotelName": [
+              "Hilton New York"
+            ],
+            "roomType": [
+              "suite with queen size bed"
+            ],
+            "nights": [
+              3
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_95",
+      "question": "Convert 200 euros to US dollars using current exchange rate.",
+      "model_response": "currency_exchange.convert(amount=200, from_currency=\"euros\", to_currency=\"US dollars\")",
+      "ground_truth": [
+        {
+          "currency_exchange.convert": {
+            "amount": [
+              200
+            ],
+            "from_currency": [
+              "EUR"
+            ],
+            "to_currency": [
+              "USD"
+            ],
+            "live_conversion": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_96",
+      "question": "Solve a quadratic equation where a=2, b=6, and c=5",
+      "model_response": "solve_quadratic_equation(a=2, b=6, c=5)",
+      "ground_truth": [
+        {
+          "solve_quadratic_equation": {
+            "a": [
+              2
+            ],
+            "b": [
+              6
+            ],
+            "c": [
+              5
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_97",
+      "question": "What's the area of a circle with a radius of 10?",
+      "model_response": "geometry.area_circle(radius=10)",
+      "ground_truth": [
+        {
+          "geometry.area_circle": {
+            "radius": [
+              10
+            ],
+            "units": [
+              "",
+              "meters"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_98",
+      "question": "Calculate the circumference of a circle with radius 3",
+      "model_response": "geometry.circumference(radius=3)",
+      "ground_truth": [
+        {
+          "geometry.circumference": {
+            "radius": [
+              3
+            ],
+            "units": [
+              "cm",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_99",
+      "question": "Calculate the derivative of the function 2x^2 at x = 1.",
+      "model_response": " calculus.derivative(function='2*x**2', value=1)",
+      "ground_truth": [
+        {
+          "calculus.derivative": {
+            "function": [
+              "2x**2",
+              "lambda x: 2x**2"
+            ],
+            "value": [
+              1
+            ],
+            "function_variable": [
+              "x",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_100",
+      "question": "Find the highest common factor of 36 and 24.",
+      "model_response": " function_name(number1=36, number2=24)",
+      "ground_truth": [
+        {
+          "math.hcf": {
+            "number1": [
+              36
+            ],
+            "number2": [
+              24
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_101",
+      "question": "Find the greatest common divisor (GCD) of 12 and 18",
+      "model_response": " function_name(math.gcd(num1=12, num2=18))",
+      "ground_truth": [
+        {
+          "math.gcd": {
+            "num1": [
+              12
+            ],
+            "num2": [
+              18
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_102",
+      "question": "Calculate the displacement of a car given the initial velocity of 10 and acceleeration of 9.8 within 5 seconds.",
+      "model_response": "calculate_displacement(initial_velocity=10, time=5, acceleration=9.8)",
+      "ground_truth": [
+        {
+          "calculate_displacement": {
+            "initial_velocity": [
+              10
+            ],
+            "time": [
+              5
+            ],
+            "acceleration": [
+              9.8
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_103",
+      "question": "Calculate the final speed of an object dropped from 100 m without air resistance.",
+      "model_response": "calculate_final_speed(initial_velocity=0, height=100)",
+      "ground_truth": [
+        {
+          "calculate_final_speed": {
+            "initial_velocity": [
+              0
+            ],
+            "height": [
+              100
+            ],
+            "gravity": [
+              9.8,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_104",
+      "question": "Find the shortest driving distance between New York City and Washington D.C.",
+      "model_response": "get_shortest_driving_distance(origin=\"New York City\", destination=\"Washington D.C.\")",
+      "ground_truth": [
+        {
+          "get_shortest_driving_distance": {
+            "origin": [
+              "New York City",
+              "NYC"
+            ],
+            "destination": [
+              "Washington D.C.",
+              "D.C.",
+              "DC"
+            ],
+            "unit": [
+              "",
+              "kilometers"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_105",
+      "question": "Calculate the magnetic field produced at the center of a circular loop carrying current of 5 Ampere with a radius of 4 meters",
+      "model_response": "calculate_magnetic_field(current=5, radius=4)",
+      "ground_truth": [
+        {
+          "calculate_magnetic_field": {
+            "current": [
+              5
+            ],
+            "radius": [
+              4
+            ],
+            "permeability": [
+              "",
+              0.01
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_106",
+      "question": "Calculate the electric field strength 4 meters away from a charge of 0.01 Coulombs.",
+      "model_response": "calculate_electric_field_strength(charge=0.01, distance=4)",
+      "ground_truth": [
+        {
+          "calculate_electric_field_strength": {
+            "charge": [
+              0.01
+            ],
+            "distance": [
+              4
+            ],
+            "medium": [
+              "",
+              "vacuum"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_107",
+      "question": "What is the density of a substance with a mass of 45 kg and a volume of 15 m³?",
+      "model_response": "calculate_density(mass=45, volume=15)",
+      "ground_truth": [
+        {
+          "calculate_density": {
+            "mass": [
+              45
+            ],
+            "volume": [
+              15
+            ],
+            "unit": [
+              "kg/m³",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_108",
+      "question": "Calculate the heat capacity at constant pressure for air, given its temperature is 298K and volume is 10 m^3.",
+      "model_response": "calc_heat_capacity(temp=298, volume=10)",
+      "ground_truth": [
+        {
+          "calc_heat_capacity": {
+            "temp": [
+              298
+            ],
+            "volume": [
+              10
+            ],
+            "gas": [
+              "air",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_109",
+      "question": "What are the names of proteins found in the plasma membrane?",
+      "model_response": "cellbio.get_proteins(cell_compartment='plasma membrane')",
+      "ground_truth": [
+        {
+          "cellbio.get_proteins": {
+            "cell_compartment": [
+              "plasma membrane"
+            ],
+            "include_description": [
+              false,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_110",
+      "question": "Find the type of gene mutation based on SNP (Single Nucleotide Polymorphism) ID rs6034464.",
+      "model_response": "mutation_type.find(snp_id=\"rs6034464\")",
+      "ground_truth": [
+        {
+          "mutation_type.find": {
+            "snp_id": [
+              "rs6034464"
+            ],
+            "species": [
+              "Homo sapiens",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_111",
+      "question": "What is the genotype frequency of AA genotype in a population, given that allele frequency of A is 0.3?",
+      "model_response": "calculate_genotype_frequency(allele_frequency=0.3, genotype=\"AA\")",
+      "ground_truth": [
+        {
+          "calculate_genotype_frequency": {
+            "allele_frequency": [
+              0.3
+            ],
+            "genotype": [
+              "AA"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_112",
+      "question": "Predict the growth of forest in Yellowstone National Park for the next 5 years including human impact.",
+      "model_response": "forest_growth_forecast(location=\"Yellowstone National Park\", years=5, include_human_impact=True)",
+      "ground_truth": [
+        {
+          "forest_growth_forecast": {
+            "location": [
+              "Yellowstone National Park"
+            ],
+            "years": [
+              5
+            ],
+            "include_human_impact": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_113",
+      "question": "Calculate the expected evolutionary fitness of a creature, with trait A contributing to 40% of the fitness and trait B contributing 60%, if trait A has a value of 0.8 and trait B a value of 0.7.",
+      "model_response": " function_name(trait_values=[0.8, 0.7], trait_contributions=[0.4, 0.6])",
+      "ground_truth": [
+        {
+          "calculate_fitness": {
+            "trait_values": [
+              [
+                0.8,
+                0.7
+              ]
+            ],
+            "trait_contributions": [
+              [
+                0.4,
+                0.6
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_114",
+      "question": "Get me the predictions of the evolutionary rate for Homo Sapiens for next 50 years using Darwin model",
+      "model_response": "prediction.evolution(species='Homo Sapiens', years=50, model='Darwin')",
+      "ground_truth": [
+        {
+          "prediction.evolution": {
+            "species": [
+              "Homo Sapiens",
+              "Homo sapiens"
+            ],
+            "years": [
+              50
+            ],
+            "model": [
+              "Darwin",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_115",
+      "question": "I want to find 5 restaurants nearby my location, Manhattan, offering Thai food and a vegan menu.",
+      "model_response": "find_restaurants(location='Manhattan', food_type='Thai', number=5, dietary_requirements=['vegan'])",
+      "ground_truth": [
+        {
+          "find_restaurants": {
+            "location": [
+              "Manhattan"
+            ],
+            "food_type": [
+              "Thai"
+            ],
+            "number": [
+              5
+            ],
+            "dietary_requirements": [
+              [
+                "vegan"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_116",
+      "question": "Calculate the Body Mass Index (BMI) of a person with a weight of 85 kilograms and height of 180 cm.",
+      "model_response": "calculate_bmi(weight=85, height=180)",
+      "ground_truth": [
+        {
+          "calculate_bmi": {
+            "weight": [
+              85
+            ],
+            "height": [
+              180
+            ],
+            "unit": [
+              "",
+              "metric"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_117",
+      "question": "Calculate the BMI (Body Mass Index) of a person who weighs 70kg and is 1.75m tall.",
+      "model_response": "calculate_BMI(weight_kg=70, height_m=1.75)",
+      "ground_truth": [
+        {
+          "calculate_BMI": {
+            "weight_kg": [
+              70
+            ],
+            "height_m": [
+              1.75
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_118",
+      "question": "Find all movies starring Leonardo DiCaprio in the year 2010 from IMDB database.",
+      "model_response": "function_name(airports.find_movies_by_actor(actor_name=Leonardo DiCaprio, year=2010))",
+      "ground_truth": [
+        {
+          "imdb.find_movies_by_actor": {
+            "actor_name": [
+              "Leonardo DiCaprio"
+            ],
+            "year": [
+              2010
+            ],
+            "category": [
+              "",
+              "all"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_119",
+      "question": "Find records in database in user table where age is greater than 25 and job is 'engineer'.",
+      "model_response": "database.query(table=\"user\", conditions=[{\"field\": \"age\", \"operation\": \">\", \"value\": \"25\"}, {\"field\": \"job\", \"operation\": \"=\", \"value\": \"engineer\"}])",
+      "ground_truth": [
+        {
+          "database.query": {
+            "table": [
+              "user"
+            ],
+            "conditions": [
+              [
+                {
+                  "field": [
+                    "age"
+                  ],
+                  "operation": [
+                    ">"
+                  ],
+                  "value": [
+                    "25"
+                  ]
+                },
+                {
+                  "field": [
+                    "job"
+                  ],
+                  "operation": [
+                    "="
+                  ],
+                  "value": [
+                    "engineer"
+                  ]
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_120",
+      "question": "How much time will it take for the light to reach earth from a star 4 light years away?",
+      "model_response": "light_travel_time(distance_in_light_years=4)",
+      "ground_truth": [
+        {
+          "light_travel_time": {
+            "distance_in_light_years": [
+              4
+            ],
+            "speed_of_light": [
+              299792458,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_121",
+      "question": "Calculate the area of a triangle with base 6 and height 10.",
+      "model_response": "geometry.area_triangle(base=6, height=10)",
+      "ground_truth": [
+        {
+          "geometry.area_triangle": {
+            "base": [
+              6
+            ],
+            "height": [
+              10
+            ],
+            "unit": [
+              "",
+              "square meters"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_122",
+      "question": "Run a linear regression model with predictor variables 'Age', 'Income' and 'Education' and a target variable 'Purchase_Amount'. Also apply standardization.",
+      "model_response": "run_linear_regression(predictors=['Age', 'Income', 'Education'], target='Purchase_Amount', standardize=True)",
+      "ground_truth": [
+        {
+          "run_linear_regression": {
+            "predictors": [
+              [
+                "Age",
+                "Income",
+                "Education"
+              ],
+              [
+                "Age",
+                "Education",
+                "Income"
+              ],
+              [
+                "Income",
+                "Age",
+                "Education"
+              ],
+              [
+                "Income",
+                "Education",
+                "Age"
+              ],
+              [
+                "Education",
+                "Age",
+                "Income"
+              ],
+              [
+                "Education",
+                "Income",
+                "Age"
+              ]
+            ],
+            "target": [
+              "Purchase_Amount"
+            ],
+            "standardize": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_123",
+      "question": "Calculate the probability of drawing a king from a deck of cards.",
+      "model_response": "calculate_probability(total_outcomes=52, favorable_outcomes=4, round_to=2)",
+      "ground_truth": [
+        {
+          "calculate_probability": {
+            "total_outcomes": [
+              52
+            ],
+            "favorable_outcomes": [
+              4
+            ],
+            "round_to": [
+              "",
+              2
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_124",
+      "question": "What's the probability of drawing a king from a well shuffled standard deck of 52 cards?",
+      "model_response": "probabilities.calculate_single(total_outcomes=52, event_outcomes=4)",
+      "ground_truth": [
+        {
+          "probabilities.calculate_single": {
+            "total_outcomes": [
+              52
+            ],
+            "event_outcomes": [
+              4
+            ],
+            "round": [
+              "",
+              2
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_125",
+      "question": "Run a two sample T-test to compare the average of Group A [3, 4, 5, 6, 4] and Group B [7, 8, 9, 8, 7] assuming equal variance.",
+      "model_response": "run_two_sample_ttest(group1=[3, 4, 5, 6, 4], group2=[7, 8, 9, 8, 7], equal_variance=True)",
+      "ground_truth": [
+        {
+          "run_two_sample_ttest": {
+            "group1": [
+              [
+                3,
+                4,
+                5,
+                6,
+                4
+              ]
+            ],
+            "group2": [
+              [
+                7,
+                8,
+                9,
+                8,
+                7
+              ]
+            ],
+            "equal_variance": [
+              true,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_126",
+      "question": "Find the statistical significance between two set of variables, dataset_A with the values 12, 24, 36 and dataset_B with the values 15, 30, 45.",
+      "model_response": "function_name(t_test(dataset_A=[12, 24, 36], dataset_B=[15, 30, 45]))",
+      "ground_truth": [
+        {
+          "t_test": {
+            "dataset_A": [
+              [
+                12,
+                24,
+                36
+              ]
+            ],
+            "dataset_B": [
+              [
+                15,
+                30,
+                45
+              ]
+            ],
+            "alpha": [
+              "",
+              0.05
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_127",
+      "question": "What's the quarterly dividend per share of a company with 100 million outstanding shares and total dividend payout of 50 million USD?",
+      "model_response": "finance.calculate_quarterly_dividend_per_share(total_payout=50000000, outstanding_shares=1000000000)",
+      "ground_truth": [
+        {
+          "finance.calculate_quarterly_dividend_per_share": {
+            "total_payout": [
+              50000000
+            ],
+            "outstanding_shares": [
+              100000000
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_128",
+      "question": "Calculate the company's return on equity given its net income of $2,000,000, shareholder's equity of $10,000,000, and dividends paid of $200,000.",
+      "model_response": "calculate_return_on_equity(net_income=2000000, shareholder_equity=10000000, dividends_paid=200000)",
+      "ground_truth": [
+        {
+          "calculate_return_on_equity": {
+            "net_income": [
+              2000000
+            ],
+            "shareholder_equity": [
+              10000000
+            ],
+            "dividends_paid": [
+              200000
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_129",
+      "question": "Find the compound interest for an investment of $10000 with an annual interest rate of 5% compounded monthly for 5 years.",
+      "model_response": "function_name(principal=10000, annual_rate=5, compounding_freq=\"monthly\", time_in_years=5)",
+      "ground_truth": [
+        {
+          "compound_interest": {
+            "principal": [
+              10000
+            ],
+            "annual_rate": [
+              5.0
+            ],
+            "compounding_freq": [
+              "monthly"
+            ],
+            "time_in_years": [
+              5
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_130",
+      "question": "Calculate the Compound Annual Growth Rate (CAGR) for an initial investment of $2000, final value of $3000 in a period of 4 years.",
+      "model_response": "calculate_cagr(initial_value=2000, final_value=3000, period_in_years=4)",
+      "ground_truth": [
+        {
+          "calculate_cagr": {
+            "initial_value": [
+              2000
+            ],
+            "final_value": [
+              3000
+            ],
+            "period_in_years": [
+              4
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_131",
+      "question": "Find the market performance of the S&P 500 and the Dow Jones over the past 5 days.",
+      "model_response": "function_name(indexes=['S&P 500', 'Dow Jones'], days=5)",
+      "ground_truth": [
+        {
+          "market_performance.get_data": {
+            "indexes": [
+              [
+                "S&P 500",
+                "Dow Jones"
+              ]
+            ],
+            "days": [
+              5
+            ],
+            "detailed": [
+              "",
+              false
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_132",
+      "question": "Calculate the future value of an investment with an annual rate of return of 8%, an initial investment of $20000, and a time frame of 5 years.",
+      "model_response": "finance.calculate_future_value(initial_investment=20000, rate_of_return=0.08, years=5)",
+      "ground_truth": [
+        {
+          "finance.calculate_future_value": {
+            "initial_investment": [
+              20000
+            ],
+            "rate_of_return": [
+              0.08
+            ],
+            "years": [
+              5
+            ],
+            "contribution": [
+              "",
+              0
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_133",
+      "question": "Calculate the balance of a mutual fund given a total investment of $50000 with a 5% annual yield after 3 years.",
+      "model_response": "calculate_mutual_fund_balance(investment_amount=50000, annual_yield=0.05, years=3)",
+      "ground_truth": [
+        {
+          "calculate_mutual_fund_balance": {
+            "investment_amount": [
+              50000
+            ],
+            "annual_yield": [
+              0.05
+            ],
+            "years": [
+              3
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_134",
+      "question": "Look up details of a felony crime record for case number CA123456 in San Diego County",
+      "model_response": "function_name(crime_record.get_record(case_number=\"CA123456\", county=\"San Diego County\"))",
+      "ground_truth": [
+        {
+          "crime_record.get_record": {
+            "case_number": [
+              "CA123456"
+            ],
+            "county": [
+              "San Diego",
+              "San Diego County"
+            ],
+            "details": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_135",
+      "question": "Who was the victim in the case docket numbered 2022/AL2562 in California?",
+      "model_response": "function_name(get_case_info(docket=\"2022/AL2562\", court=\"California\", info_type=\"victim\"))",
+      "ground_truth": [
+        {
+          "get_case_info": {
+            "docket": [
+              "2022/AL2562"
+            ],
+            "court": [
+              "California",
+              "CA"
+            ],
+            "info_type": [
+              "victim"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_136",
+      "question": "Provide me the official crime rate of violent crime in San Francisco in 2020.",
+      "model_response": "function_name(get_crime_rate(city=\"San Francisco\", state=\"CA\", type=\"violent\", year=2020))",
+      "ground_truth": [
+        {
+          "get_crime_rate": {
+            "city": [
+              "San Francisco",
+              "San Francisco, CA",
+              "SF"
+            ],
+            "state": [
+              "California",
+              "CA"
+            ],
+            "type": [
+              "violent",
+              "Violent"
+            ],
+            "year": [
+              2020
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_137",
+      "question": "Search for ongoing lawsuits related to the company 'Google' filed after January 1, 2021 in California.",
+      "model_response": "function_name(lawsuit_search(company=\"Google\", start_date=\"2021-01-01\", location=\"California\", status=\"ongoing\"))",
+      "ground_truth": [
+        {
+          "lawsuit_search": {
+            "company": [
+              "Google"
+            ],
+            "start_date": [
+              "2021-01-01",
+              "01/01/2021",
+              "Jan.1,2021",
+              "January 1, 2021"
+            ],
+            "location": [
+              "California",
+              "CA"
+            ],
+            "status": [
+              "ongoing",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_138",
+      "question": "How to obtain the detailed case information of the R vs Adams legal case?",
+      "model_response": "function_name(legal_case.fetch(case_id=\"R vs Adams\", details=True))",
+      "ground_truth": [
+        {
+          "legal_case.fetch": {
+            "case_id": [
+              "R vs Adams",
+              "R_vs_Adams"
+            ],
+            "details": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_139",
+      "question": "Find details of patent lawsuits involving the company 'Apple Inc.' from the year 2010.",
+      "model_response": "function_name(lawsuit_details.find, company_name=Apple Inc., year=2010, case_type='Patent')",
+      "ground_truth": [
+        {
+          "lawsuit_details.find": {
+            "company_name": [
+              "Apple Inc."
+            ],
+            "year": [
+              2010
+            ],
+            "case_type": [
+              "Patent"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_140",
+      "question": "Find the lawsuits filed against the company Google in California in the year 2020.",
+      "model_response": "function_name(lawsuits_search(company_name=\"Google\", location=\"California\", year=2020))",
+      "ground_truth": [
+        {
+          "lawsuits_search": {
+            "company_name": [
+              "Google"
+            ],
+            "location": [
+              "California",
+              "CA"
+            ],
+            "year": [
+              2020
+            ],
+            "case_type": [
+              "",
+              "all"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_141",
+      "question": "I need the details of the lawsuit case with case ID of 1234 and verify if it's already closed.",
+      "model_response": "lawsuit.check_case(case_id=1234, closed_status=True)",
+      "ground_truth": [
+        {
+          "lawsuit.check_case": {
+            "case_id": [
+              1234
+            ],
+            "closed_status": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_142",
+      "question": "What is the humidity level in Miami, Florida in the upcoming 7 days?",
+      "model_response": " function_name(weather.humidity_forecast(location=\"Miami, Florida\", days=7))",
+      "ground_truth": [
+        {
+          "weather.humidity_forecast": {
+            "location": [
+              "Miami",
+              "Miami, Florida",
+              "FL"
+            ],
+            "days": [
+              7
+            ],
+            "min_humidity": [
+              "",
+              0
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_143",
+      "question": "Calculate the slope gradient in degree between two points on a landscape with coordinates (40.7128, -74.0060) and (34.0522, -118.2437).",
+      "model_response": "calculate_slope_gradient(point1=[40.7128, -74.006], point2=[34.0522, -118.2437])",
+      "ground_truth": [
+        {
+          "calculate_slope_gradient": {
+            "point1": [
+              [
+                40.7128,
+                -74.006
+              ]
+            ],
+            "point2": [
+              [
+                34.0522,
+                -118.2437
+              ]
+            ],
+            "unit": [
+              "degree",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_144",
+      "question": "What is the air quality index in London 2022/08/16?",
+      "model_response": "air_quality(location=\"London\", date=\"2022-08-16\")",
+      "ground_truth": [
+        {
+          "air_quality": {
+            "location": [
+              "London"
+            ],
+            "date": [
+              "2022-08-16",
+              "16/08/2022",
+              "Aug.16,2022",
+              "2022/08/16",
+              "16\\08\\2022"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_145",
+      "question": "How much CO2 is produced annually by a gas-fueled car that travels 12,000 miles per year with fuel efficiency 20 mpg?",
+      "model_response": "calculate_emissions(distance=12000, fuel_type=\"gas\", fuel_efficiency=20)",
+      "ground_truth": [
+        {
+          "calculate_emissions": {
+            "distance": [
+              12000
+            ],
+            "fuel_type": [
+              "gas",
+              "gasoline"
+            ],
+            "fuel_efficiency": [
+              20
+            ],
+            "efficiency_reduction": [
+              "",
+              0.0
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_146",
+      "question": "Find restaurants near me within 10 miles that offer Chinese cuisine in Seattle.",
+      "model_response": " function_name(restaurant.find_nearby(location=\"Seattle, WA\", cuisine=\"Chinese\", max_distance=10))",
+      "ground_truth": [
+        {
+          "restaurant.find_nearby": {
+            "location": [
+              "Seattle",
+              "Seattle, WA"
+            ],
+            "cuisine": [
+              "Chinese"
+            ],
+            "max_distance": [
+              10
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_147",
+      "question": "Get me the directions from New York to Los Angeles avoiding highways and toll roads.",
+      "model_response": "function_service.get_directions(start=\"New York\", end=\"Los Angeles\", avoid=[\"highways\", \"tolls\"])",
+      "ground_truth": [
+        {
+          "map_service.get_directions": {
+            "start": [
+              "New York",
+              "New York, NY",
+              "NYC"
+            ],
+            "end": [
+              "Los Angeles",
+              "LA"
+            ],
+            "avoid": [
+              [
+                "highways",
+                "tolls"
+              ],
+              [
+                "tolls",
+                "highways"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_148",
+      "question": "Give me detail information about stocks of Apple Inc.",
+      "model_response": "function_name(get_stock_info(company_name=\"Apple Inc\", detail_level=\"detailed\"))",
+      "ground_truth": [
+        {
+          "get_stock_info": {
+            "company_name": [
+              "Apple Inc.",
+              "Apple"
+            ],
+            "detail_level": [
+              "detailed"
+            ],
+            "market": [
+              "NASDAQ",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_149",
+      "question": "Analyze the sentiment of a customer review 'I love the food here! It's always fresh and delicious.'.",
+      "model_response": "function_name(sentiment_analysis(text='I love the food here! It\\'s always fresh and delicious.', language='english'))",
+      "ground_truth": [
+        {
+          "sentiment_analysis": {
+            "text": [
+              "I love the food here! It's always fresh and delicious."
+            ],
+            "language": [
+              "english",
+              "English"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_150",
+      "question": "Calculate the neuronal activity based on synaptic input rate of 200 and weight 0.5 and decay rate of 0.1.",
+      "model_response": "calculate_neuronal_activity(input_synaptic_rate=200, weight=0.5, decay_rate=0.1)",
+      "ground_truth": [
+        {
+          "calculate_neuronal_activity": {
+            "input_synaptic_rate": [
+              200
+            ],
+            "weight": [
+              0.5
+            ],
+            "decay_rate": [
+              0.1
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_151",
+      "question": "Find the most followed person on twitter who tweets about psychology related to behaviour and group dynamics.",
+      "model_response": "function_name(most_followed(topic=\"psychology\", sub_topics=[\"behaviour\", \"group dynamics\"]))",
+      "ground_truth": [
+        {
+          "social_media_analytics.most_followed": {
+            "topic": [
+              "psychology",
+              "Psychology"
+            ],
+            "sub_topics": [
+              [
+                "behaviour",
+                "group dynamics"
+              ],
+              [
+                "group dynamics",
+                "behaviour"
+              ]
+            ],
+            "region": [
+              "",
+              "global"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_152",
+      "question": "Provide key war events in German history from 1871 to 1945.",
+      "model_response": " function_name(history.get_key_events(country=\"Germany\", start_year=1871, end_year=1945, event_type=[\"War\"]))",
+      "ground_truth": [
+        {
+          "history.get_key_events": {
+            "country": [
+              "Germany"
+            ],
+            "start_year": [
+              1871
+            ],
+            "end_year": [
+              1945
+            ],
+            "event_type": [
+              [
+                "War"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_153",
+      "question": "When was the signing of the Treaty of Lisbon?",
+      "model_response": "get_event_date(event='Treaty of Lisbon')",
+      "ground_truth": [
+        {
+          "get_event_date": {
+            "event": [
+              "Treaty of Lisbon",
+              "Signing of the Treaty of Lisbon"
+            ],
+            "location": [
+              "",
+              "global",
+              "Lisbon",
+              "Lisbon, Portugal"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_154",
+      "question": "Who was the full name of the president of the United States in 1861?",
+      "model_response": "US_president.in_year(year=1861, full_name=True)",
+      "ground_truth": [
+        {
+          "US_president.in_year": {
+            "year": [
+              1861
+            ],
+            "full_name": [
+              true,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_155",
+      "question": "Who discovered the neutron? Give me detail information.",
+      "model_response": " function_name(get_discoverer(discovery=\"neutron\", detail=True))",
+      "ground_truth": [
+        {
+          "get_discoverer": {
+            "discovery": [
+              "neutron"
+            ],
+            "detail": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_156",
+      "question": "What was Albert Einstein's contribution to science on March 17, 1915?",
+      "model_response": " function_name(historical_contrib.get_contrib(scientist='Albert Einstein', date='1915-03-17'))",
+      "ground_truth": [
+        {
+          "historical_contrib.get_contrib": {
+            "scientist": [
+              "Albert Einstein"
+            ],
+            "date": [
+              "1915-03-17",
+              "03/17/1915",
+              "Mar.17,1915"
+            ],
+            "category": [
+              "",
+              "all"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_157",
+      "question": "What is the earliest reference of Jesus Christ in history from historical record?",
+      "model_response": "function_name(get_earliest_reference(name=\"Jesus Christ\", source=\"historical records\"))",
+      "ground_truth": [
+        {
+          "get_earliest_reference": {
+            "name": [
+              "Jesus Christ"
+            ],
+            "source": [
+              "historical records"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_158",
+      "question": "Get the biography and main contributions of Pope Innocent III.",
+      "model_response": "function_name(papal_name=pope_innocent_iii, include_contributions=True)",
+      "ground_truth": [
+        {
+          "religious_history.get_papal_biography": {
+            "papal_name": [
+              "Innocent III",
+              "Pope Innocent III"
+            ],
+            "include_contributions": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_159",
+      "question": "Calculate the total quantity of paint needed to cover a wall of 30 feet by 12 feet using a specific brand that covers 400 square feet per gallon.",
+      "model_response": "calculate_paint_needed(coverage_rate=400, length=30, height=12)",
+      "ground_truth": [
+        {
+          "calculate_paint_needed": {
+            "coverage_rate": [
+              400
+            ],
+            "length": [
+              30
+            ],
+            "height": [
+              12
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_160",
+      "question": "Find me the most recent art sculpture by James Plensa with detailed description.",
+      "model_response": "function_name(art_sculpture_info=artist_name=James%20Plensa, detail=True)",
+      "ground_truth": [
+        {
+          "get_sculpture_info": {
+            "artist_name": [
+              "James Plensa"
+            ],
+            "detail": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_161",
+      "question": "Find the top rated modern sculpture exhibition happening in New York in the upcoming month.",
+      "model_response": "find_exhibition(location=\"New York, NY\", art_form=\"sculpture\", month=\"upcoming\", user_ratings=\"high\")",
+      "ground_truth": [
+        {
+          "find_exhibition": {
+            "location": [
+              "New York",
+              "New York, NY",
+              "New York City",
+              "NYC",
+              "NY"
+            ],
+            "art_form": [
+              "sculpture",
+              "modern sculpture"
+            ],
+            "month": [
+              "upcoming",
+              "next month",
+              "upcoming month",
+              "next",
+              ""
+            ],
+            "user_ratings": [
+              "high",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_162",
+      "question": "What is the structural dynamic analysis of the building with building Id B1004 for 2nd, 3rd and 4th floors?",
+      "model_response": "analyze_structure(building_id=\"B1004\", floors=[2, 3, 4], mode=\"dynamic\")",
+      "ground_truth": [
+        {
+          "analyze_structure": {
+            "building_id": [
+              "B1004"
+            ],
+            "floors": [
+              [
+                2,
+                3,
+                4
+              ]
+            ],
+            "mode": [
+              "dynamic"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_163",
+      "question": "Get the list of top 5 popular artworks at the Metropolitan Museum of Art. Please sort by popularity.",
+      "model_response": "function_name(number=5, sort_by=\"popularity\")",
+      "ground_truth": [
+        {
+          "metropolitan_museum.get_top_artworks": {
+            "number": [
+              5
+            ],
+            "sort_by": [
+              "popularity"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_164",
+      "question": "What's the retail price of a Fender American Professional II Stratocaster in Rosewood Finish?",
+      "model_response": "instrument_price.get(brand=\"Fender\", model=\"American Professional II Stratocaster\", finish=\"Rosewood\")",
+      "ground_truth": [
+        {
+          "instrument_price.get": {
+            "brand": [
+              "Fender"
+            ],
+            "model": [
+              "American Professional II Stratocaster"
+            ],
+            "finish": [
+              "Rosewood"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_165",
+      "question": "Find the price of a used Gibson Les Paul guitar in excellent condition in the Chicago area.",
+      "model_response": "function_name(guitar_price.find(model=\"Les Paul\", condition=\"Excellent\", location=\"Chicago\"))",
+      "ground_truth": [
+        {
+          "guitar_price.find": {
+            "model": [
+              "Gibson Les Paul"
+            ],
+            "condition": [
+              "Excellent"
+            ],
+            "location": [
+              "Chicago",
+              "Chicago area"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_166",
+      "question": "Find me a classical concert this weekend in Los Angeles with cheap tickets.",
+      "model_response": "concert.search(genre='classical', location='Los Angeles', date='this weekend', price_range='cheap')",
+      "ground_truth": [
+        {
+          "concert.search": {
+            "genre": [
+              "classical"
+            ],
+            "location": [
+              "Los Angeles",
+              "LA"
+            ],
+            "date": [
+              "this weekend",
+              "weekend"
+            ],
+            "price_range": [
+              "cheap"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_167",
+      "question": "Generate a melody in C major scale, starting with the note C4, 16 measures long, at 120 beats per minute.",
+      "model_response": "music_generator.generate_melody(key='C', start_note='C4', length=16)",
+      "ground_truth": [
+        {
+          "music_generator.generate_melody": {
+            "key": [
+              "C"
+            ],
+            "start_note": [
+              "C4"
+            ],
+            "length": [
+              16
+            ],
+            "tempo": [
+              120,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_168",
+      "question": "Find the lyrics to the song 'Bohemian Rhapsody' by Queen.",
+      "model_response": "function_name(song_title=Bohemian Rhapsody, artist_name=Queen)",
+      "ground_truth": [
+        {
+          "get_song_lyrics": {
+            "song_title": [
+              "Bohemian Rhapsody"
+            ],
+            "artist_name": [
+              "Queen"
+            ],
+            "lang": [
+              "English",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_169",
+      "question": "What is the musical scale associated with C sharp major?",
+      "model_response": "function_name(key=\"C sharp\", scale_type=\"major\")",
+      "ground_truth": [
+        {
+          "musical_scale": {
+            "key": [
+              "C#",
+              "C sharp"
+            ],
+            "scale_type": [
+              "major",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_170",
+      "question": "Get the player stats of Cristiano Ronaldo in the 2019-2020 season",
+      "model_response": "soccer_stat.get_player_stats(player_name=\"Cristiano Ronaldo\", season=\"2019-2020\")",
+      "ground_truth": [
+        {
+          "soccer_stat.get_player_stats": {
+            "player_name": [
+              "Cristiano Ronaldo"
+            ],
+            "season": [
+              "2019-2020"
+            ],
+            "league": [
+              "all",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_171",
+      "question": "Who won the basketball game between Lakers and Clippers on Jan 28, 2021?",
+      "model_response": "game_result.get_winner(teams=['Lakers', 'Clippers'], date='2021-01-28')",
+      "ground_truth": [
+        {
+          "game_result.get_winner": {
+            "teams": [
+              [
+                "Lakers",
+                "Clippers"
+              ],
+              [
+                "Clippers",
+                "Lakers"
+              ]
+            ],
+            "date": [
+              "2021-01-28",
+              "01/28/2021",
+              "Jan.28,2021"
+            ],
+            "venue": [
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_172",
+      "question": "Find me the detailed profile of basketball player Lebron James",
+      "model_response": "function_name(sport='Basketball', name='Lebron James')",
+      "ground_truth": [
+        {
+          "sports_db.find_athlete": {
+            "name": [
+              "Lebron James"
+            ],
+            "sport": [
+              "Basketball"
+            ],
+            "team": [
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_173",
+      "question": "Get the NBA team's ranking with the best defence in the 2021 season.",
+      "model_response": "function_name(get_defense_ranking, season=2021)",
+      "ground_truth": [
+        {
+          "get_defense_ranking": {
+            "season": [
+              2021
+            ],
+            "top": [
+              1,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_174",
+      "question": "What is the ranking of Manchester United in Premier League?",
+      "model_response": "function_name(sport=\"Premier League\", team=\"Manchester United\")",
+      "ground_truth": [
+        {
+          "sports_ranking": {
+            "team": [
+              "Manchester United",
+              "Man United",
+              "Man U",
+              "MUFC"
+            ],
+            "league": [
+              "Premier League"
+            ],
+            "season": [
+              "",
+              2024
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_175",
+      "question": "Who is ranked as the top player in woman tennis?",
+      "model_response": "sports_ranking.get_top_player(sport=\"tennis\", gender=\"women\")",
+      "ground_truth": [
+        {
+          "sports_ranking.get_top_player": {
+            "sport": [
+              "tennis"
+            ],
+            "gender": [
+              "women"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_176",
+      "question": "Give me the schedule of Manchester United for the next 6 games in Premier League.",
+      "model_response": "function_name(team_name=Manchester United, num_of_games=6, league=\"Premier League\")",
+      "ground_truth": [
+        {
+          "sports_team.get_schedule": {
+            "team_name": [
+              "Manchester United",
+              "Man United",
+              "Man U",
+              "MUFC"
+            ],
+            "num_of_games": [
+              6
+            ],
+            "league": [
+              "Premier League",
+              "PL"
+            ],
+            "location": [
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_177",
+      "question": "Find the top chess players in New York with a rating above 2300.",
+      "model_response": "function_name(location=\"New York\", minimum_rating=2300, number_of_players=10)",
+      "ground_truth": [
+        {
+          "board_game.chess.get_top_players": {
+            "location": [
+              "New York",
+              "New York, NY",
+              "NYC"
+            ],
+            "minimum_rating": [
+              2300
+            ],
+            "number_of_players": [
+              "",
+              10
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_178",
+      "question": "Find a Card of rank 'Queen' and suit 'Hearts' in the deck.",
+      "model_response": "function_name(rank='Queen', suit='Hearts')",
+      "ground_truth": [
+        {
+          "find_card_in_deck": {
+            "rank": [
+              "Queen"
+            ],
+            "suit": [
+              "Hearts"
+            ],
+            "deck": [
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_179",
+      "question": "What is the probability of getting a full house in poker?",
+      "model_response": " function_name(poker_probability.full_house(deck_size=52, hand_size=5))",
+      "ground_truth": [
+        {
+          "poker_probability.full_house": {
+            "deck_size": [
+              52
+            ],
+            "hand_size": [
+              5
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_180",
+      "question": "Fetch player statistics of 'Zelda' on Switch for user 'Sam'.",
+      "model_response": "game_stats.fetch_player_statistics(game='Zelda', username='Sam', platform='Switch')",
+      "ground_truth": [
+        {
+          "game_stats.fetch_player_statistics": {
+            "game": [
+              "Zelda"
+            ],
+            "username": [
+              "Sam"
+            ],
+            "platform": [
+              "Switch",
+              "Nintendo Switch"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_181",
+      "question": "Get me the details of the last game played by Liverpool F.C. Include its statistics.",
+      "model_response": "function_name(soccer.get_last_match(team_name=\"Liverpool F.C.\", include_stats=True))",
+      "ground_truth": [
+        {
+          "soccer.get_last_match": {
+            "team_name": [
+              "Liverpool F.C.",
+              "Liverpool"
+            ],
+            "include_stats": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_182",
+      "question": "Find me a multiplayer game with rating above 4.5 and compatible with Windows 10.",
+      "model_response": "multiplayer_game_finder(platform='Windows 10', rating=4.5)",
+      "ground_truth": [
+        {
+          "multiplayer_game_finder": {
+            "platform": [
+              "Windows 10"
+            ],
+            "rating": [
+              4.5
+            ],
+            "genre": [
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_183",
+      "question": "How many calories in the Beef Lasagna Recipe from Foodnetwork.com?",
+      "model_response": "recipe_info.get_calories(website=\"Foodnetwork.com\", recipe=\"Beef Lasagna\")",
+      "ground_truth": [
+        {
+          "recipe_info.get_calories": {
+            "website": [
+              "Foodnetwork.com"
+            ],
+            "recipe": [
+              "Beef Lasagna",
+              "Beef Lasagna Recipe"
+            ],
+            "optional_meal_time": [
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_184",
+      "question": "Give me a recipe for a vegetarian pasta with cheese for 2 servings.",
+      "model_response": "function_name(dietary_restriction=Vegetarian, ingredients=['pasta', 'cheese'], servings=2)",
+      "ground_truth": [
+        {
+          "recipe_search": {
+            "dietary_restriction": [
+              "Vegetarian"
+            ],
+            "ingredients": [
+              [
+                "pasta",
+                "cheese"
+              ],
+              [
+                "cheese",
+                "pasta"
+              ]
+            ],
+            "servings": [
+              2
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_185",
+      "question": "Find the closest sushi restaurant with a patio in Boston.",
+      "model_response": "function_search.find_closest(location=\"Boston\", cuisine=\"Sushi\", amenities=[\"Patio\"])",
+      "ground_truth": [
+        {
+          "restaurant_search.find_closest": {
+            "location": [
+              "Boston",
+              "Boston, MA"
+            ],
+            "cuisine": [
+              "Sushi"
+            ],
+            "amenities": [
+              [
+                "Patio"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_186",
+      "question": "Find me a vegan recipe for brownies which prep time is under 30 minutes.",
+      "model_response": "function_name(find_recipe(dietary_restrictions=\"vegan\", recipe_type=\"dessert\", time=30))",
+      "ground_truth": [
+        {
+          "find_recipe": {
+            "dietary_restrictions": [
+              "vegan"
+            ],
+            "recipe_type": [
+              "dessert"
+            ],
+            "time": [
+              30
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_187",
+      "question": "Check the price of tomatoes and lettuce at the Whole Foods in Los Angeles.",
+      "model_response": "whole_foods.check_price(location=\"Los Angeles\", items=[\"tomatoes\", \"lettuce\"])",
+      "ground_truth": [
+        {
+          "whole_foods.check_price": {
+            "location": [
+              "Los Angeles",
+              "LA"
+            ],
+            "items": [
+              [
+                "tomatoes",
+                "lettuce"
+              ],
+              [
+                "lettuce",
+                "tomatoes"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_188",
+      "question": "Find the grocery store closest to Berkeley that has at least a 4.5 star rating, selling tomatoes and also pet food.",
+      "model_response": "grocery_store.find_best(my_location=\"Berkeley\", rating=4.5, products=[\"tomatoes\", \"pet food\"]) function_name(arg1=my_location=Berkeley, arg2=rating=4.5, arg3=products=['tomatoes', 'pet food'])",
+      "ground_truth": [
+        {
+          "grocery_store.find_best": {
+            "my_location": [
+              "Berkeley",
+              "Berkeley,California",
+              "Berkeley,CA",
+              "Berkeley, CA"
+            ],
+            "rating": [
+              4.5
+            ],
+            "products": [
+              [
+                "tomatoes",
+                "pet food"
+              ],
+              [
+                "pet food",
+                "tomatoes"
+              ],
+              [
+                "Tomatoes",
+                "Pet food"
+              ],
+              [
+                "Pet food",
+                "Tomatoes"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_189",
+      "question": "Convert time 3pm from New York time zone to London time zone.",
+      "model_response": "timezone.convert(time=\"3pm\", from_timezone=\"New York\", to_timezone=\"London\")",
+      "ground_truth": [
+        {
+          "timezone.convert": {
+            "time": [
+              "3pm"
+            ],
+            "from_timezone": [
+              "America/New_York",
+              "New York",
+              "New York, NY",
+              "NY",
+              "NYC",
+              "Eastern Standard Time",
+              "EST"
+            ],
+            "to_timezone": [
+              "Europe/London",
+              "London",
+              "British Summer Time",
+              "BST",
+              "Greenwich Mean Time",
+              "GMT"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_190",
+      "question": "Book a single room for two nights at the Hilton Hotel in Chicago, starting from 10th December 2022.",
+      "model_response": "book_hotel(hotel_name=\"Hilton Hotel\", location=\"Chicago\", room_type=\"single\", start_date=\"10th December 2022\", nights=2) To book a single room for two nights at the Hilton Hotel in Chicago, starting from 10th December 2022.",
+      "ground_truth": [
+        {
+          "book_hotel": {
+            "hotel_name": [
+              "Hilton Hotel",
+              "Hilton"
+            ],
+            "location": [
+              "Chicago"
+            ],
+            "room_type": [
+              "single",
+              "Single"
+            ],
+            "start_date": [
+              "2022-12-10",
+              "10/12/2022",
+              "Dec.10,2022",
+              "10th December 2022",
+              "10 December 2022"
+            ],
+            "nights": [
+              2
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_191",
+      "question": "Book a luxury room in Hotel Paradise, Las Vegas, with a city view for 3 days starting from May 12, 2022.",
+      "model_response": "book_hotel(hotel_name=\"Hotel Paradise\", location=\"Las Vegas\", room_type=\"luxury room\", start_date=\"05-12-2022\", stay_duration=3, view=\"city view\") function_name(arg1=value1, arg2=value2) is not directly available. The correct function call should be:\nbook_hotel(hotel_name=\"Hotel Paradise\", location=\"Las Vegas\", room_type=\"luxury room\", start_date=\"05-12-2022\", stay_duration=3, view=\"city view\")",
+      "ground_truth": [
+        {
+          "book_hotel": {
+            "hotel_name": [
+              "Hotel Paradise"
+            ],
+            "location": [
+              "Las Vegas",
+              "Las Vegas, NV",
+              "LV"
+            ],
+            "room_type": [
+              "luxury",
+              "Luxury"
+            ],
+            "start_date": [
+              "05-12-2022",
+              "2022-05-12",
+              "12/05/2022",
+              "May.12,2022",
+              "May 12, 2022"
+            ],
+            "stay_duration": [
+              3
+            ],
+            "view": [
+              "city",
+              "city view"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_192",
+      "question": "Convert 150 Euros to Canadian dollars.",
+      "model_response": "currency_conversion.convert(amount=150, from_currency=\"EUR\", to_currency=\"CAD\")",
+      "ground_truth": [
+        {
+          "currency_conversion.convert": {
+            "amount": [
+              150
+            ],
+            "from_currency": [
+              "EUR"
+            ],
+            "to_currency": [
+              "CAD"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_193",
+      "question": "Get me the travel distance and duration from the Eiffel Tower to the Louvre Museum",
+      "model_response": "maps.get_distance_duration(start_location=\"Eiffel Tower\", end_location=\"Louvre Museum\")",
+      "ground_truth": [
+        {
+          "maps.get_distance_duration": {
+            "start_location": [
+              "Eiffel Tower"
+            ],
+            "end_location": [
+              "Louvre Museum"
+            ],
+            "traffic": [
+              "",
+              false
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_194",
+      "question": "What are the opening hours of the Metropolitan Museum of Art on Saturday?",
+      "model_response": "function_get_museum_hours(museum_name=\"Metropolitan Museum of Art\", day=\"Saturday\")",
+      "ground_truth": [
+        {
+          "get_museum_hours": {
+            "museum_name": [
+              "Metropolitan Museum of Art",
+              "The Met",
+              "Met Museum"
+            ],
+            "day": [
+              "Saturday"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_195",
+      "question": "Calculate the heat capacity at constant pressure for air, given its temperature is 298K and volume is 10 m^3.",
+      "model_response": "calc_heat_capacity(temp=298, volume=10)",
+      "ground_truth": [
+        {
+          "calc_heat_capacity": {
+            "temp": [
+              298
+            ],
+            "volume": [
+              10
+            ],
+            "gas": [
+              "air",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_196",
+      "question": "What are the names of proteins found in the plasma membrane?",
+      "model_response": " function_name(cell_compartment=plasma_membrane)",
+      "ground_truth": [
+        {
+          "cellbio.get_proteins": {
+            "cell_compartment": [
+              "plasma membrane"
+            ],
+            "include_description": [
+              "",
+              false
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_197",
+      "question": "Find the type of gene mutation based on SNP (Single Nucleotide Polymorphism) ID rs6034464.",
+      "model_response": "mutation_type.find(snp_id=\"rs6034464\")",
+      "ground_truth": [
+        {
+          "mutation_type.find": {
+            "snp_id": [
+              "rs6034464"
+            ],
+            "species": [
+              "",
+              "Homo sapiens"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_198",
+      "question": "What is the genotype frequency of AA genotype in a population, given that allele frequency of A is 0.3?",
+      "model_response": "calculate_genotype_frequency(allele_frequency=0.3, genotype=\"AA\")",
+      "ground_truth": [
+        {
+          "calculate_genotype_frequency": {
+            "allele_frequency": [
+              0.3
+            ],
+            "genotype": [
+              "AA"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_199",
+      "question": "Predict the growth of forest in Yellowstone for the next 5 years including human impact.",
+      "model_response": "forest_growth_forecast(location=\"Yellowstone\", years=5, include_human_impact=True)",
+      "ground_truth": [
+        {
+          "forest_growth_forecast": {
+            "location": [
+              "Yellowstone",
+              "yellowstone"
+            ],
+            "years": [
+              5
+            ],
+            "include_human_impact": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    }
+  ]
+}
