@@ -1,0 +1,296 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "endpoint": "https://mzkzbztaqbgxlted.us-east-1.aws.endpoints.huggingface.cloud",
+  "test_date": "2025-12-09T21:31:27.907088",
+  "task": "simple_python",
+  "total": 10,
+  "correct": 8,
+  "success_rate": 80.0,
+  "results": [
+    {
+      "id": "simple_python_0",
+      "question": "Find the area of a triangle with a base of 10 units and height of 5 units.",
+      "model_response": "calculate_triangle_area(base=10, height=5)",
+      "parsed_call": {
+        "name": "calculate_triangle_area",
+        "arguments": {
+          "base": 10,
+          "height": 5
+        }
+      },
+      "ground_truth": [
+        {
+          "calculate_triangle_area": {
+            "base": [
+              10
+            ],
+            "height": [
+              5
+            ],
+            "unit": [
+              "units",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_python_1",
+      "question": "Calculate the factorial of 5 using math functions.",
+      "model_response": "math.factorial(number=5)",
+      "parsed_call": {
+        "name": "math.factorial",
+        "arguments": {
+          "number": 5
+        }
+      },
+      "ground_truth": [
+        {
+          "math.factorial": {
+            "number": [
+              5
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_python_2",
+      "question": "Calculate the hypotenuse of a right triangle given the lengths of the other two sides as 4 and 5.",
+      "model_response": "function_name(x=4, y=5)",
+      "parsed_call": {
+        "name": "function_name",
+        "arguments": {
+          "x": 4,
+          "y": 5
+        }
+      },
+      "ground_truth": [
+        {
+          "math.hypot": {
+            "x": [
+              4
+            ],
+            "y": [
+              5
+            ],
+            "z": [
+              "",
+              0
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_python_3",
+      "question": "Find the roots of a quadratic equation with coefficients a=1, b=-3, c=2.",
+      "model_response": "algebra.quadratic_roots(a=1, b=-3, c=2)",
+      "parsed_call": {
+        "name": "algebra.quadratic_roots",
+        "arguments": {
+          "a": 1,
+          "b": -3,
+          "c": 2
+        }
+      },
+      "ground_truth": [
+        {
+          "algebra.quadratic_roots": {
+            "a": [
+              1
+            ],
+            "b": [
+              -3
+            ],
+            "c": [
+              2
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_python_4",
+      "question": "Solve a quadratic equation where a=2, b=6, and c=5",
+      "model_response": " solve_quadratic_equation(a=2, b=6, c=5)",
+      "parsed_call": {
+        "name": "solve_quadratic_equation",
+        "arguments": {
+          "a": 2,
+          "b": 6,
+          "c": 5
+        }
+      },
+      "ground_truth": [
+        {
+          "solve_quadratic_equation": {
+            "a": [
+              2
+            ],
+            "b": [
+              6
+            ],
+            "c": [
+              5
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_python_5",
+      "question": "Find all the roots of a quadratic equation given coefficients a = 3, b = -11, and c = -4.",
+      "model_response": "function_name(a=3, b=-11, c=-4, root_type=\"all\")",
+      "parsed_call": {
+        "name": "function_name",
+        "arguments": {
+          "a": 3,
+          "b": -11,
+          "c": -4,
+          "root_type": "all"
+        }
+      },
+      "ground_truth": [
+        {
+          "solve_quadratic": {
+            "a": [
+              3
+            ],
+            "b": [
+              -11
+            ],
+            "c": [
+              -4
+            ],
+            "root_type": [
+              "all"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_python_6",
+      "question": "What are the roots of the quadratic equation where a=2, b=5 and c=3 ?",
+      "model_response": " solve_quadratic(a=2, b=5, c=3)",
+      "parsed_call": {
+        "name": "solve_quadratic",
+        "arguments": {
+          "a": 2,
+          "b": 5,
+          "c": 3
+        }
+      },
+      "ground_truth": [
+        {
+          "solve_quadratic": {
+            "a": [
+              2
+            ],
+            "b": [
+              5
+            ],
+            "c": [
+              3
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_python_7",
+      "question": "What is the circumference of a circle with a radius of 4 inches?",
+      "model_response": "calculate_circumference(radius=4, unit=\"inches\")",
+      "parsed_call": {
+        "name": "calculate_circumference",
+        "arguments": {
+          "radius": 4,
+          "unit": "inches"
+        }
+      },
+      "ground_truth": [
+        {
+          "calculate_circumference": {
+            "radius": [
+              4
+            ],
+            "unit": [
+              "inches",
+              "in"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_python_8",
+      "question": "What's the area of a circle with a radius of 10?",
+      "model_response": "geometry.area_circle(radius=10)",
+      "parsed_call": {
+        "name": "geometry.area_circle",
+        "arguments": {
+          "radius": 10
+        }
+      },
+      "ground_truth": [
+        {
+          "geometry.area_circle": {
+            "radius": [
+              10
+            ],
+            "units": [
+              "meters",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_python_9",
+      "question": "Calculate the area of a circle with a radius of 5 units.",
+      "model_response": "geometry.calculate_area_circle(radius=5)",
+      "parsed_call": {
+        "name": "geometry.calculate_area_circle",
+        "arguments": {
+          "radius": 5
+        }
+      },
+      "ground_truth": [
+        {
+          "geometry.calculate_area_circle": {
+            "radius": [
+              5
+            ],
+            "unit": [
+              "units",
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    }
+  ]
+}

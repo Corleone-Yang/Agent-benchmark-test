@@ -1,0 +1,345 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "endpoint": "https://mzkzbztaqbgxlted.us-east-1.aws.endpoints.huggingface.cloud",
+  "test_date": "2025-12-09T21:31:27.907697",
+  "task": "multiple",
+  "total": 10,
+  "correct": 4,
+  "success_rate": 40.0,
+  "results": [
+    {
+      "id": "multiple_0",
+      "question": "Can I find the dimensions and properties of a triangle, if I know its three sides are 5 units, 4 units and 3 units long?",
+      "model_response": "triangle_properties.get(side1=5, side2=4, side3=3)",
+      "parsed_call": {
+        "name": "triangle_properties.get",
+        "arguments": {
+          "side1": 5,
+          "side2": 4,
+          "side3": 3
+        }
+      },
+      "ground_truth": [
+        {
+          "triangle_properties.get": {
+            "side1": [
+              5
+            ],
+            "side2": [
+              4
+            ],
+            "side3": [
+              3
+            ],
+            "get_area": [
+              "",
+              true
+            ],
+            "get_perimeter": [
+              "",
+              true
+            ],
+            "get_angles": [
+              "",
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_1",
+      "question": "Calculate the area of a triangle, given the lengths of its three sides: 3, 4, and 5.",
+      "model_response": "math.triangle_area_heron(side1=3, side2=4, side3=5)",
+      "parsed_call": {
+        "name": "math.triangle_area_heron",
+        "arguments": {
+          "side1": 3,
+          "side2": 4,
+          "side3": 5
+        }
+      },
+      "ground_truth": [
+        {
+          "math.triangle_area_heron": {
+            "side1": [
+              3
+            ],
+            "side2": [
+              4
+            ],
+            "side3": [
+              5
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_2",
+      "question": "What is the capital of Brazil?",
+      "model_response": "function_name(country=Brazil)",
+      "parsed_call": {
+        "name": "function_name",
+        "arguments": {
+          "country": "Brazil"
+        }
+      },
+      "ground_truth": [
+        {
+          "country_info.capital": {
+            "country": [
+              "Brazil"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_3",
+      "question": "Compute the Euclidean distance between two points A(3,4) and B(1,2).",
+      "model_response": "function_name(EuclideanDistance.calculate(pointA=[3, 4], pointB=[1, 2]))",
+      "parsed_call": {
+        "name": "function_name",
+        "arguments": {
+          "pointA": "[3",
+          "pointB": "[1"
+        }
+      },
+      "ground_truth": [
+        {
+          "EuclideanDistance.calculate": {
+            "pointA": [
+              [
+                3,
+                4
+              ]
+            ],
+            "pointB": [
+              [
+                1,
+                2
+              ]
+            ],
+            "rounding": [
+              "",
+              0
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_4",
+      "question": "Can you calculate the displacement of a car moving at an initial speed of 20 m/s and then accelerates at 10 m/s^2 for 5 seconds? (assuming a straight line motion)",
+      "model_response": " kinematics.calculate_displacement(initial_speed=20, acceleration=10, time=5)",
+      "parsed_call": {
+        "name": "kinematics.calculate_displacement",
+        "arguments": {
+          "initial_speed": 20,
+          "acceleration": 10,
+          "time": 5
+        }
+      },
+      "ground_truth": [
+        {
+          "kinematics.calculate_displacement": {
+            "initial_speed": [
+              20
+            ],
+            "acceleration": [
+              10
+            ],
+            "time": [
+              5
+            ],
+            "rounding": [
+              "",
+              2
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_5",
+      "question": "What is the wind speed and temperature in location given by coordinates 46.603354,1.8883340 on December 13, 2019?",
+      "model_response": "weather.get_forecast_by_coordinates(coordinates=(46.603354, 1.888334), days_ahead=7)",
+      "parsed_call": {
+        "name": "weather.get_forecast_by_coordinates",
+        "arguments": {
+          "coordinates": "(46.603354"
+        }
+      },
+      "ground_truth": [
+        {
+          "weather.get_by_coordinates_date": {
+            "coordinates": [
+              [
+                46.603354,
+                1.888334
+              ]
+            ],
+            "date": [
+              "2019-12-13"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_6",
+      "question": "Calculate the capacitance of a parallel plate capacitor where the area of the plate is 10 square meters, the distance between plates is 0.01 meters and the dielectric constant K is 1.0.",
+      "model_response": "capacitance_calculator.calculate(A=10, d=0.01)",
+      "parsed_call": {
+        "name": "capacitance_calculator.calculate",
+        "arguments": {
+          "A": 10,
+          "d": 0.01
+        }
+      },
+      "ground_truth": [
+        {
+          "capacitance_calculator.calculate": {
+            "A": [
+              10
+            ],
+            "d": [
+              0.01
+            ],
+            "K": [
+              1.0,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "multiple_7",
+      "question": "How to assess the population growth in deer and their impact on woodland in Washington state over the past decade?",
+      "model_response": "function_name(wildlife_population.assess_growth(species=\"deer\", location=\"Washington state\", duration=10), ecological_impact.analyze(species=\"deer\", ecosystem=\"woodland\", location=\"Washington state\", timeframe=10))",
+      "parsed_call": {
+        "name": "function_name",
+        "arguments": {
+          "species": "deer",
+          "location": "Washington state",
+          "duration": 10
+        }
+      },
+      "ground_truth": [
+        {
+          "wildlife_population.assess_growth": {
+            "species": [
+              "deer",
+              "Deer"
+            ],
+            "location": [
+              "Washington state",
+              "WA",
+              "Washington"
+            ],
+            "duration": [
+              10
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_8",
+      "question": "Find a 3 bedroom villa for sale within $300,000 to $400,000 budget in San Diego.",
+      "model_response": "realestate.find_properties(location=\"San Diego, CA\", propertyType=\"villa\", bedrooms=3, budget={\"min\": 300000, \"max\": 400000})",
+      "parsed_call": {
+        "name": "realestate.find_properties",
+        "arguments": {
+          "location": "San Diego",
+          "propertyType": "villa",
+          "bedrooms": 3,
+          "budget": "{\"min\": 300000"
+        }
+      },
+      "ground_truth": [
+        {
+          "realestate.find_properties": {
+            "location": [
+              "SD",
+              "San Diego",
+              "San Diego, CA",
+              "CA"
+            ],
+            "propertyType": [
+              "villa"
+            ],
+            "bedrooms": [
+              3
+            ],
+            "budget": [
+              {
+                "min": [
+                  300000
+                ],
+                "max": [
+                  400000
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "multiple_9",
+      "question": "Calculate the average grade for student John who has these scores {'math':90, 'science':75, 'history':82, 'music':89} across different subjects.",
+      "model_response": "calculate_average(gradeDict={'math':90,'science':75, 'history':82,'music':89})",
+      "parsed_call": {
+        "name": "calculate_average",
+        "arguments": {
+          "gradeDict": "{'math':90"
+        }
+      },
+      "ground_truth": [
+        {
+          "calculate_average": {
+            "gradeDict": [
+              {
+                "math": [
+                  90
+                ],
+                "science": [
+                  75
+                ],
+                "history": [
+                  82
+                ],
+                "music": [
+                  89
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    }
+  ]
+}

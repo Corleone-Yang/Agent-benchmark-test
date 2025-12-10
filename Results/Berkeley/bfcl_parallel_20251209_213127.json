@@ -1,0 +1,510 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "endpoint": "https://mzkzbztaqbgxlted.us-east-1.aws.endpoints.huggingface.cloud",
+  "test_date": "2025-12-09T21:31:27.908469",
+  "task": "parallel",
+  "total": 10,
+  "correct": 2,
+  "success_rate": 20.0,
+  "results": [
+    {
+      "id": "parallel_0",
+      "question": "Play songs from the artists Taylor Swift and Maroon 5, with a play time of 20 minutes and 15 minutes respectively, on Spotify.",
+      "model_response": " \nfunction_name(playlist=spotify.play, artist=\"Taylor Swift\", duration=20)\nfunction_name(playlist=spotify.play, artist=\"Maroon 5\", duration=15)",
+      "parsed_call": {
+        "name": "function_name",
+        "arguments": {
+          "playlist": "spotify.play",
+          "artist": "Taylor Swift",
+          "duration": 20
+        }
+      },
+      "ground_truth": [
+        {
+          "spotify.play": {
+            "artist": [
+              "Taylor Swift"
+            ],
+            "duration": [
+              20
+            ]
+          }
+        },
+        {
+          "spotify.play": {
+            "artist": [
+              "Maroon 5"
+            ],
+            "duration": [
+              15
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "parallel_1",
+      "question": "Calculate the induced electromagnetic force for a magnetic field of 5 Tesla, area of 2 square meters and change in time of 4 seconds, then repeat with a change in time of 10 seconds.",
+      "model_response": " function_name(b_field=5, area=2, d_time=4) function_name(b_field=5, area=2, d_time=10)",
+      "parsed_call": {
+        "name": "function_name",
+        "arguments": {
+          "b_field": 5,
+          "area": 2,
+          "d_time": 4
+        }
+      },
+      "ground_truth": [
+        {
+          "calculate_em_force": {
+            "b_field": [
+              5
+            ],
+            "area": [
+              2
+            ],
+            "d_time": [
+              4
+            ]
+          }
+        },
+        {
+          "calculate_em_force": {
+            "b_field": [
+              5
+            ],
+            "area": [
+              2
+            ],
+            "d_time": [
+              10
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "parallel_2",
+      "question": "Calculate the resistance of a wire with a length of 5m and cross sectional area 0.01m² with resistivity of copper and aluminum",
+      "model_response": "calculate_resistance(length=5, area=0.01, resistivity='copper')\ncalculate_resistance(length=5, area=0.01, resistivity='aluminum')",
+      "parsed_call": {
+        "name": "calculate_resistance",
+        "arguments": {
+          "length": 5,
+          "area": 0.01,
+          "resistivity": "copper"
+        }
+      },
+      "ground_truth": [
+        {
+          "calculate_resistance": {
+            "length": [
+              5
+            ],
+            "area": [
+              0.01
+            ],
+            "resistivity": [
+              "copper",
+              ""
+            ]
+          }
+        },
+        {
+          "calculate_resistance": {
+            "length": [
+              5
+            ],
+            "area": [
+              0.01
+            ],
+            "resistivity": [
+              "aluminum"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "parallel_3",
+      "question": "Get the protein sequence of human HbA1c, normal hemoglobin, and rat hemoglobin and their 3D models",
+      "model_response": " \nfunction_name(protein_info.get_sequence_and_3D(protein_name=\"human_HbA1c\", model_3d=True))\nfunction_name(protein_info.get_sequence_and_3D(protein_name=\"normal_hemoglobin\", model_3d=True))\nfunction_name(protein_info.get_sequence_and_3D(protein_name=\"rat_hemoglobin\", model_3d=True))",
+      "parsed_call": {
+        "name": "function_name",
+        "arguments": {
+          "protein_name": "human_HbA1c",
+          "model_3d": "True"
+        }
+      },
+      "ground_truth": [
+        {
+          "protein_info.get_sequence_and_3D": {
+            "protein_name": [
+              "human HbA1c",
+              "HbA1c"
+            ],
+            "model_3d": [
+              true,
+              ""
+            ]
+          }
+        },
+        {
+          "protein_info.get_sequence_and_3D": {
+            "protein_name": [
+              "normal hemoglobin"
+            ],
+            "model_3d": [
+              true,
+              ""
+            ]
+          }
+        },
+        {
+          "protein_info.get_sequence_and_3D": {
+            "protein_name": [
+              "rat hemoglobin"
+            ],
+            "model_3d": [
+              true,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "parallel_4",
+      "question": "Calculate the body mass index for a person who is 6 feet tall and weighs 80 kg, also for a person who is 5.6 feet and weighs 60 kg.",
+      "model_response": " \nfunction_name(height=6, weight=80)\nfunction_name(height=5.6, weight=60)",
+      "parsed_call": {
+        "name": "function_name",
+        "arguments": {
+          "height": 6,
+          "weight": 80
+        }
+      },
+      "ground_truth": [
+        {
+          "calculate_bmi": {
+            "height": [
+              6.0
+            ],
+            "weight": [
+              80
+            ]
+          }
+        },
+        {
+          "calculate_bmi": {
+            "height": [
+              5.6
+            ],
+            "weight": [
+              60
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "parallel_5",
+      "question": "Find the list of TV shows and their ratings on Netflix for 'Friends', and Hulu for 'The Office' and 'Stranger Things' and sort by its rating",
+      "model_response": " \nfunction_name(streaming_service=\"Netflix\", show_list=[\"Friends\"])\nfunction_name(streaming_service=\"Hulu\", show_list=[\"The Office\", \"Stranger Things\"], sort_by_rating=True)",
+      "parsed_call": {
+        "name": "function_name",
+        "arguments": {
+          "streaming_service": "Netflix",
+          "show_list": "[\"Friends\"]"
+        }
+      },
+      "ground_truth": [
+        {
+          "streaming_services.shows_list_and_ratings": {
+            "streaming_service": [
+              "Netflix"
+            ],
+            "show_list": [
+              [
+                "Friends"
+              ]
+            ],
+            "sort_by_rating": [
+              true
+            ]
+          }
+        },
+        {
+          "streaming_services.shows_list_and_ratings": {
+            "streaming_service": [
+              "Hulu"
+            ],
+            "show_list": [
+              [
+                "The Office",
+                "Stranger Things"
+              ],
+              [
+                "Stranger Things",
+                "The Office"
+              ]
+            ],
+            "sort_by_rating": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "parallel_6",
+      "question": "Calculate the amount of sales tax to be added on a purchase amount of $30.45 in Chicago, Illinois, $52.33 in Sacramento, California and $11.23 in Portland, Oregon.",
+      "model_response": " \ncalculate_sales_tax(purchase_amount=30.45, city=\"Chicago\", state=\"Illinois\")\ncalculate_sales_tax(purchase_amount=52.33, city=\"Sacramento\", state=\"California\")\ncalculate_sales_tax(purchase_amount=11.23, city=\"Portland\", state=\"Oregon\")",
+      "parsed_call": {
+        "name": "calculate_sales_tax",
+        "arguments": {
+          "purchase_amount": 30.45,
+          "city": "Chicago",
+          "state": "Illinois"
+        }
+      },
+      "ground_truth": [
+        {
+          "calculate_sales_tax": {
+            "purchase_amount": [
+              30.45
+            ],
+            "city": [
+              "Chicago",
+              "CHI"
+            ],
+            "state": [
+              "IL",
+              "Illinois"
+            ]
+          }
+        },
+        {
+          "calculate_sales_tax": {
+            "purchase_amount": [
+              52.33
+            ],
+            "city": [
+              "Sacramento"
+            ],
+            "state": [
+              "CA",
+              "California"
+            ]
+          }
+        },
+        {
+          "calculate_sales_tax": {
+            "purchase_amount": [
+              11.23
+            ],
+            "city": [
+              "Portland"
+            ],
+            "state": [
+              "OR",
+              "Oregon"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "parallel_7",
+      "question": "Find the factorial of 5,10 and 15.",
+      "model_response": " \nfunction_name(number=5)\nfunction_name(number=10)\nfunction_name(number=15)",
+      "parsed_call": {
+        "name": "function_name",
+        "arguments": {
+          "number": 5
+        }
+      },
+      "ground_truth": [
+        {
+          "math.factorial": {
+            "number": [
+              5
+            ]
+          }
+        },
+        {
+          "math.factorial": {
+            "number": [
+              10
+            ]
+          }
+        },
+        {
+          "math.factorial": {
+            "number": [
+              15
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "parallel_8",
+      "question": "Fetch the population of New York City, NY,  and Los Angeles, CA from US Census Database, and also get the population data for Alaska state and USA",
+      "model_response": " \nfunction_name(database_us_census.get_population(area=\"New York City\", type=\"city\", year=2020))\nfunction_name(database_us_census.get_population(area=\"Los Angeles\", type=\"city\", year=2020))\nfunction_name(database_us_census.get_population(area=\"Alaska\", type=\"state\", year=2020))\nfunction_name(database_us_census.get_population(area=\"USA\", type=\"country\", year=2020))",
+      "parsed_call": {
+        "name": "function_name",
+        "arguments": {
+          "area": "New York City",
+          "type": "city",
+          "year": 2020
+        }
+      },
+      "ground_truth": [
+        {
+          "database_us_census.get_population": {
+            "area": [
+              "New York City",
+              "NY",
+              "New York City, NY",
+              "NYC"
+            ],
+            "type": [
+              "city"
+            ],
+            "year": [
+              "",
+              2000
+            ]
+          }
+        },
+        {
+          "database_us_census.get_population": {
+            "area": [
+              "Los Angeles",
+              "Los Angeles, CA",
+              "CA",
+              "Los Angeles, CA"
+            ],
+            "type": [
+              "city"
+            ],
+            "year": [
+              "",
+              2000
+            ]
+          }
+        },
+        {
+          "database_us_census.get_population": {
+            "area": [
+              "Alaska"
+            ],
+            "type": [
+              "state"
+            ],
+            "year": [
+              "",
+              2000
+            ]
+          }
+        },
+        {
+          "database_us_census.get_population": {
+            "area": [
+              "USA",
+              "United States",
+              "United States of America"
+            ],
+            "type": [
+              "country"
+            ],
+            "year": [
+              "",
+              2000
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "parallel_9",
+      "question": "Find two movie theatres near San Diego with availability for Tenet at 5 pm and No Time To Die at 7:30 pm.",
+      "model_response": " \nfunction_name(find_movie_showing(location=\"San Diego, CA\", movie=[\"Tenet\", \"No Time To Die\"], time=[\"17:00\", \"20:30\"]))",
+      "parsed_call": {
+        "name": "function_name",
+        "arguments": {
+          "location": "San Diego",
+          "movie": "[\"Tenet",
+          "time": "[\"17:00"
+        }
+      },
+      "ground_truth": [
+        {
+          "find_movie_showing": {
+            "location": [
+              "San Diego",
+              "San Diego, CA",
+              "CA"
+            ],
+            "movie": [
+              [
+                "Tenet"
+              ]
+            ],
+            "time": [
+              [
+                "5 pm"
+              ],
+              [
+                "17:00"
+              ]
+            ]
+          }
+        },
+        {
+          "find_movie_showing": {
+            "location": [
+              "San Diego",
+              "San Diego, CA",
+              "CA"
+            ],
+            "movie": [
+              [
+                "No Time To Die"
+              ]
+            ],
+            "time": [
+              [
+                "7:30 pm"
+              ],
+              [
+                "19:30"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    }
+  ]
+}
