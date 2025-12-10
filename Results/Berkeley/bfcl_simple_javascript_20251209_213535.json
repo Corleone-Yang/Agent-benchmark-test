@@ -1,0 +1,1165 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "endpoint": "https://mzkzbztaqbgxlted.us-east-1.aws.endpoints.huggingface.cloud",
+  "test_date": "2025-12-09T21:47:10.368591",
+  "task": "simple_javascript",
+  "total": 50,
+  "correct": 16,
+  "success_rate": 32.0,
+  "results": [
+    {
+      "id": "simple_javascript_0",
+      "question": "Help me validate user input in a form field with the ID 'userInputField' after the user has finished typing?",
+      "model_response": "validateUserInput(inputField=userInputField, isComplete=True)",
+      "ground_truth": [
+        {
+          "validateUserInput": {
+            "inputField": [
+              "userInputField"
+            ],
+            "isComplete": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_1",
+      "question": "Help me extract all data entries with the attribute 'data-active' set to true from a list element stored in a variable named 'listElement'?",
+      "model_response": " function_name(listElement=listElement, attribute='data-active', value=True)",
+      "ground_truth": [
+        {
+          "getActiveDataEntries": {
+            "listElement": [
+              "listElement"
+            ],
+            "attribute": [
+              "data-active",
+              ""
+            ],
+            "value": [
+              true,
+              ""
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_2",
+      "question": "Help me extract the last transaction ID that has a status of 'completed' or 'failed' from a database log located at '/var/log/db.log', using 'utf-8' encoding, and process the information with a processing function?",
+      "model_response": " function_name(extractLastTransactionId(filepath=\"/var/log/db.log\", status=['completed', 'failed'], encoding=\"utf-8\", processFunction=None))",
+      "ground_truth": [
+        {
+          "extractLastTransactionId": {
+            "filepath": [
+              "/var/log/db.log"
+            ],
+            "status": [
+              [
+                "completed",
+                "failed"
+              ]
+            ],
+            "encoding": [
+              "utf-8"
+            ],
+            "processFunction": [
+              "processFunction"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_3",
+      "question": "Help me send a 'submit' action to a React form with the ID 'loginForm' at a coordinate that is 30% from the top and 60% from the left?",
+      "model_response": " function_name(action='submit', formId='loginForm', coordinates=[0.3, 0.6])",
+      "ground_truth": [
+        {
+          "submitAtCoordinate": {
+            "action": [
+              "submit"
+            ],
+            "formId": [
+              "loginForm"
+            ],
+            "coordinates": [
+              [
+                60,
+                30
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_4",
+      "question": "Help me verify if an email address 'example@domain.com' conforms to the standard email format, optionally allowing for custom domain validation with 'domain.com'?",
+      "model_response": "emailFormatValidator(email='example@domain.com', domain='domain.com')",
+      "ground_truth": [
+        {
+          "emailFormatValidator": {
+            "email": [
+              "example@domain.com"
+            ],
+            "domain": [
+              "domain.com"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_5",
+      "question": "Given the manageReactState function, which encapsulates state management logic for React applications including shared state handling and performance optimization, write a line of code to initialize this function. Assume you have an initial state object `initialStateObject`, a map of reducer functions `reducersMap`, a logger middleware `loggerMiddleware`, and an application of middleware as enhancers. Also, assume the existence of custom hooks `useStateSelectorHook` and `useDispatchActionHook` for state access and updates within React components. Use applyMiddleware('myMiddleWare') as enhancers.",
+      "model_response": " manageReactState(store=initialStateObject, context=None, hooks={\"useStateSelectorHook\": useStateSelectorHook, \"useDispatchActionHook\": useDispatchActionHook})",
+      "ground_truth": [
+        {
+          "manageReactState": {
+            "store": [
+              {
+                "initialState": [
+                  "initialStateObject"
+                ],
+                "reducers": [
+                  "reducersMap"
+                ],
+                "middlewares": [
+                  [
+                    "loggerMiddleware"
+                  ]
+                ],
+                "enhancers": [
+                  [
+                    "applyMiddleware('myMiddleWare')"
+                  ]
+                ]
+              }
+            ],
+            "context": [
+              "React.createContext()"
+            ],
+            "hooks": [
+              {
+                "useStateSelector": [
+                  "useStateSelectorHook"
+                ],
+                "useDispatchAction": [
+                  "useDispatchActionHook"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_6",
+      "question": "Help me create a mapping that assigns each of the first 4 elements from a given array to the category 'transition' for use in CSS transitions?",
+      "model_response": "mapTransitions(category='transition', limit=4)",
+      "ground_truth": [
+        {
+          "mapTransitions": {
+            "category": [
+              "transition"
+            ],
+            "limit": [
+              4.0
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_7",
+      "question": "In the context of analyzing JSON data structures, help me extract all key-value pairs that follow a specific key within a data analysis context object named 'dataAnalysisContext' that initially has a key of 'userId'?",
+      "model_response": " function_name(ctx=dataAnalysisContext, currentKey='userId')",
+      "ground_truth": [
+        {
+          "getNextKeyValues": {
+            "ctx": [
+              "dataAnalysisContext"
+            ],
+            "currentKey": [
+              "userId"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_8",
+      "question": "Help me determine if an email form element referred to as 'emailForm' includes an input with the name attribute 'emailAddress'?",
+      "model_response": "doesEmailInputExist(formElem=emailForm, inputName=emailAddress)",
+      "ground_truth": [
+        {
+          "doesEmailInputExist": {
+            "formElem": [
+              "emailForm"
+            ],
+            "inputName": [
+              "emailAddress"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_9",
+      "question": "Help me analyze a JSON payload `responseData` to verify if it contains a specific key for API response validation, and trigger the corresponding processing logic? You should set keyToCheck to `expectedKey` and `processKeyFunction` as processingCallBack variable",
+      "model_response": "function_name(validateApiResponse(jsonPayload=responseData, keyToCheck=expectedKey, processingCallback=processKeyFunction))",
+      "ground_truth": [
+        {
+          "validateApiResponse": {
+            "jsonPayload": [
+              "responseData"
+            ],
+            "keyToCheck": [
+              "expectedKey"
+            ],
+            "processingCallback": [
+              "processKeyFunction"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_10",
+      "question": "Help me obtain a collection of records from the 'employeeRecords' database where the 'department' field is 'Sales' using a custom query function in javascript using function variable `getSales`?",
+      "model_response": "fetchSalesDepartmentRecords(queryFunction=getSales, databaseName='employeeRecords')",
+      "ground_truth": [
+        {
+          "fetchSalesDepartmentRecords": {
+            "databaseName": [
+              "employeeRecords"
+            ],
+            "queryFunction": [
+              "getSales"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_11",
+      "question": "Help me sort a list of items  myItemList alphabetically and ascendingly, but place items with a status of 'urgent' at the top, assuming the list is an array of objects with 'name' and 'status' properties?",
+      "model_response": "function_name(items=myItemList, priorityStatus='urgent', ascending=True)",
+      "ground_truth": [
+        {
+          "prioritizeAndSort": {
+            "items": [
+              "myItemList"
+            ],
+            "priorityStatus": [
+              "urgent"
+            ],
+            "ascending": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_12",
+      "question": "Help me implement a 'dataFetch' operation with an API endpoint URL of 'https://api.example.com/data', expecting the response to be a JSON object containing '{\"key\": \"value\"}', given a request configuration object '{\"method\": \"GET\"}'?",
+      "model_response": "function_name(performDataFetch(apiEndpoint=\"https://api.example.com/data\", requestConfig={\"method\": \"GET\"}, expectedResponse={\"key\": \"value\"}, handleErrors=False))",
+      "ground_truth": [
+        {
+          "performDataFetch": {
+            "apiEndpoint": [
+              "https://api.example.com/data"
+            ],
+            "requestConfig": [
+              {
+                "method": [
+                  "GET"
+                ]
+              }
+            ],
+            "expectedResponse": [
+              {
+                "key": [
+                  "value"
+                ]
+              }
+            ],
+            "handleErrors": [
+              true
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_13",
+      "question": "Help me generate a dynamic chart with user-provided data `userDataArray` and apply a scaling factor of 3 for the axis values, linking it to a given dashboard `dashboardElement`?",
+      "model_response": " function_name(userData=userDataArray, scalingFactor=3, dashboard=dashboardElement)",
+      "ground_truth": [
+        {
+          "DynamicChartGenerator": {
+            "userData": [
+              [
+                "userDataArray"
+              ]
+            ],
+            "scalingFactor": [
+              3.0
+            ],
+            "dashboard": [
+              "dashboardElement"
+            ],
+            "options": [
+              "",
+              {}
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_14",
+      "question": "Help me generate a data accessor for a chart component named 'BarChart', with a module name 'chartModule', in a data visualization library `visualizationLibrary`, to fetch and update its 'DataPoints' and 'Labels' through a configuration object named 'config'?",
+      "model_response": "chartDataAccessorFactory(chart={\"nm\": \"BarChart\", \"mn\": \"chartModule\"}, library=\"visualizationLibrary\", configObject=\"config\")",
+      "ground_truth": [
+        {
+          "chartDataAccessorFactory": {
+            "chart": [
+              {
+                "nm": [
+                  "BarChart"
+                ],
+                "mn": [
+                  "chartModule"
+                ]
+              }
+            ],
+            "library": [
+              "visualizationLibrary"
+            ],
+            "configObject": [
+              "config"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_15",
+      "question": "Help me generate a new ChartSeries with initial settings including axis labels `axisLabelsArray`, data points `dataPointsArray`, and a default color scheme `defaultColor`, and then integrate it into a specific chart layout `chartLayoutObject`?",
+      "model_response": " function_name(labels=axisLabelsArray, data=dataPointsArray, color=defaultColor, chartLayout=chartLayoutObject)",
+      "ground_truth": [
+        {
+          "ChartSeriesGenerator": {
+            "labels": [
+              "axisLabelsArray"
+            ],
+            "data": [
+              "dataPointsArray"
+            ],
+            "color": [
+              "defaultColor"
+            ],
+            "chartLayout": [
+              "chartLayoutObject"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_16",
+      "question": "Help me compute the updated coordinates for a set of vertices (10, 15) and (20, 25) after rotating them around a pivot point (12, 17) by 30 degrees?",
+      "model_response": "rotateVertices(vertices=[[10.0, 15.0], [20.0, 25.0]], pivot=[12.0, 17.0], angle=30.0)",
+      "ground_truth": [
+        {
+          "rotateVertices": {
+            "vertices": [
+              [
+                10.0,
+                15.0
+              ],
+              [
+                20.0,
+                25.0
+              ]
+            ],
+            "pivot": [
+              [
+                12.0,
+                17.0
+              ]
+            ],
+            "angle": [
+              30.0
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_17",
+      "question": "Help me generate a notification handler for an application `app` that filters messages based on priority level 3, linked to a messaging service 'messagingSvc', and categorized under notification type 2?",
+      "model_response": "generateNotificationHandler(app=\"app\", priorityLevel=3, messagingService=\"messagingSvc\", notificationType=2)",
+      "ground_truth": [
+        {
+          "generateNotificationHandler": {
+            "app": [
+              "app"
+            ],
+            "priorityLevel": [
+              3
+            ],
+            "messagingService": [
+              "messagingSvc"
+            ],
+            "notificationType": [
+              2
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_18",
+      "question": "What is the final velocity for an object in free fall after 5 seconds, given the gravity g and initial velocity 0?",
+      "model_response": "calculateFinalVelocity(time=5, gravity=g, initialVelocity=0)",
+      "ground_truth": [
+        {
+          "calculateFinalVelocity": {
+            "time": [
+              5.0
+            ],
+            "gravity": [
+              9.81
+            ],
+            "initialVelocity": [
+              0.0
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_19",
+      "question": "Help me configure a ShaderMaterial for a Three.js scene with specific properties 'materialProps', using textures 'textureList', and within the 3D object 'meshObject'?",
+      "model_response": "configureShaderMaterial(property=materialProps, textures=textureList, object3D=meshObject)",
+      "ground_truth": [
+        {
+          "configureShaderMaterial": {
+            "property": [
+              "materialProps"
+            ],
+            "textures": [
+              "textureList"
+            ],
+            "object3D": [
+              "meshObject"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_20",
+      "question": "Help me add a 'click' event listener to a button element 'myButton' that triggers a function named 'handleButtonClick' and stops the event from propagating by setting options's stopProgation to true?",
+      "model_response": " buttonAddClickHandler(element=\"myButton\", callback=\"handleButtonClick\", options={\"stopPropagation\": true})",
+      "ground_truth": [
+        {
+          "buttonAddClickHandler": {
+            "element": [
+              "myButton"
+            ],
+            "callback": [
+              "handleButtonClick"
+            ],
+            "options": [
+              {
+                "stopPropagation": [
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_21",
+      "question": "Help me locate a product in a list of products Product A, Product B, Product C where the 'productId' is equal to 123?",
+      "model_response": "findProductById(products=[\"Product A\", \"Product B\", \"Product C\"], id=123)",
+      "ground_truth": [
+        {
+          "findProductById": {
+            "products": [
+              [
+                "Product A",
+                "Product B",
+                "Product C"
+              ]
+            ],
+            "id": [
+              123
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_22",
+      "question": "Help me reset a state property called 'userSession' to 'null' in a React component?",
+      "model_response": "resetStateProperty(stateProperty=userSession)",
+      "ground_truth": [
+        {
+          "resetStateProperty": {
+            "stateProperty": [
+              "userSession"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_23",
+      "question": "Help me generate an authorization token for a user with username 'johndoe', valid for '3600' seconds, issued by 'myapp.net', with a role of 'admin', and encoded with 'HS256' algorithm?",
+      "model_response": " function_createAuthToken(username='johndoe', validity=3600, options={\"issuer\": \"myapp.net\", \"role\": \"admin\", \"algorithm\": \"HS256\"})",
+      "ground_truth": [
+        {
+          "createAuthToken": {
+            "username": [
+              "johndoe"
+            ],
+            "validity": [
+              3600
+            ],
+            "options": [
+              {
+                "issuer": [
+                  "myapp.net"
+                ],
+                "role": [
+                  "admin"
+                ],
+                "algorithm": [
+                  "HS256"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_24",
+      "question": "What is the best way to extract the unique elements from an array and return them sorted in ascending order? For a list of numbers 3 1 2 1 4 3",
+      "model_response": " function_call(getUniqueSorted(array=[3, 1, 2, 1, 4, 3]))",
+      "ground_truth": [
+        {
+          "getUniqueSorted": {
+            "array": [
+              [
+                3,
+                1,
+                2,
+                1,
+                4,
+                3
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_25",
+      "question": "Help me track the 'submitForm' action on a 'formHandler' object but only when the form has is required and is valid email validation flags set?",
+      "model_response": " function_name(obj=formHandler, validationFlags=['isRequired', 'isValidEmail'])",
+      "ground_truth": [
+        {
+          "trackSubmitWithValidation": {
+            "obj": [
+              "formHandler"
+            ],
+            "validationFlags": [
+              [
+                "isRequired",
+                "isValidEmail"
+              ]
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_26",
+      "question": "Help me change the content of a div with the ID 'contentBox' and new content 'Hello World' by invoking the 'update' action?",
+      "model_response": " contentUpdater(elementID='contentBox', newContent='Hello World', action='update')",
+      "ground_truth": [
+        {
+          "contentUpdater": {
+            "elementID": [
+              "contentBox"
+            ],
+            "newContent": [
+              "Hello World"
+            ],
+            "action": [
+              "update"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_27",
+      "question": "Help me validate an object named 'serviceProvider' to ensure it complies with React's prop-type constraints for a component, specifically by checking that it is not an instance of a Promise, nor contains any methods that could lead to side effects, when passed as a prop to the component 'UserProfile'?",
+      "model_response": "function_name(validateReactProp(obj=serviceProvider, componentName=\"UserProfile\"))",
+      "ground_truth": [
+        {
+          "validateReactProp": {
+            "obj": [
+              "serviceProvider"
+            ],
+            "componentName": [
+              "UserProfile"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_28",
+      "question": "Help me retrieve a list of books bookA,bookB, bookC with a specific author J.K. Rowling from a collection called 'library'?",
+      "model_response": "filterBooksByAuthor(library=['bookA', 'bookB', 'bookC'], author='J.K. Rowling')",
+      "ground_truth": [
+        {
+          "filterBooksByAuthor": {
+            "library": [
+              [
+                "bookA",
+                "bookB",
+                "bookC"
+              ]
+            ],
+            "author": [
+              "J.K. Rowling"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_29",
+      "question": "Help me schedule a sequence of events where 'setupStage' uses setupStageFunction precedes 'cleanupStage' using cleanStageFunction, ensuring only 3 events can happen at the same time?",
+      "model_response": "EventScheduler(events={\"setupStage\": [\"setupStageFunction\", []], \"cleanupStage\": [\"cleanStageFunction\", [\"setupStage\"]]}, concurrencyLimit=3, callback=None)",
+      "ground_truth": [
+        {
+          "EventScheduler": {
+            "events": [
+              {
+                "setupStage": [
+                  "setupStageFunction"
+                ],
+                "cleanupStage": [
+                  "cleanStageFunction"
+                ]
+              }
+            ],
+            "concurrencyLimit": [
+              3.0
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_30",
+      "question": "Help me replace the current text in an editor with 'Hello, World!' starting from position 5 and covering the next 7 characters?",
+      "model_response": "setText(newText=\"Hello, World!\", start=5, length=7)",
+      "ground_truth": [
+        {
+          "setText": {
+            "newText": [
+              "Hello, World!"
+            ],
+            "start": [
+              5.0
+            ],
+            "length": [
+              7.0
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_31",
+      "question": "Help me process and transform all decorators of a TypeScript declaration node named 'myNode', within a container named 'myContainer'?",
+      "model_response": " function_name(transformAllDecoratorsOfDeclaration(node=myNode, container=myContainer))",
+      "ground_truth": [
+        {
+          "transformAllDecoratorsOfDeclaration": {
+            "node": [
+              "myNode"
+            ],
+            "container": [
+              "myContainer"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_32",
+      "question": "Help me process a queue of file watch objects named 'fileWatchQueue' with a polling interval of 500 milliseconds, starting from index 0 and handling 10 files at a time to check for modifications?",
+      "model_response": " function_name(queue=fileWatchQueue, pollingInterval=500, pollIndex=0, chunkSize=10)",
+      "ground_truth": [
+        {
+          "pollQueue": {
+            "queue": [
+              "fileWatchQueue"
+            ],
+            "pollingInterval": [
+              500.0
+            ],
+            "pollIndex": [
+              0.0
+            ],
+            "chunkSize": [
+              10.0
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_33",
+      "question": "Help me ensure that a new line is emitted before the leading comments of a node with position 42 in a TypeScript file, using a lineMap object named 'tsLineMap' and a writer object named 'tsWriter'?",
+      "model_response": "emitNewLineBeforeLeadingComments(lineMap=tsLineMap, writer=tsWriter, node=42)",
+      "ground_truth": [
+        {
+          "emitNewLineBeforeLeadingComments": {
+            "lineMap": [
+              "tsLineMap"
+            ],
+            "writer": [
+              "tsWriter"
+            ],
+            "node": [
+              42
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_34",
+      "question": "Help me apply a function named 'processType' to each type in a union type object named 'unionTypeObj' to analyze its properties?",
+      "model_response": "forEachType(type=unionTypeObj, f=processType)",
+      "ground_truth": [
+        {
+          "forEachType": {
+            "type": [
+              "unionTypeObj"
+            ],
+            "f": [
+              "processType"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_35",
+      "question": "Help me check if two TypeScript declaration objects, one representing a parameter parameterObject and the other a variable declaration variableDeclarationObject, have identical declaration flags considering their optionality, privacy, protection level, asynchronicity, abstractness, readonly status, and static nature?",
+      "model_response": "areDeclarationFlagsIdentical(left=variableDeclarationObject, right=parameterObject)",
+      "ground_truth": [
+        {
+          "areDeclarationFlagsIdentical": {
+            "left": [
+              "parameterObject"
+            ],
+            "right": [
+              "variableDeclarationObject"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_36",
+      "question": "Help me update the label of a breaknode in my abstract syntax tree to 'loopEnd' if its current label is not already 'loopEnd'?",
+      "model_response": " function_name(updateBreak(node=arg_node, label=\"loopEnd\"))",
+      "ground_truth": [
+        {
+          "updateBreak": {
+            "node": [
+              "breakNode"
+            ],
+            "label": [
+              "loopEnd"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_37",
+      "question": "Help me add statements for initializing properties named 'width' and 'height' for a receiver object named 'shape' into an existing statements array named 'shapeStatements'?",
+      "model_response": " function_name(statements=shapeStatements, property=['width', 'height'], receiver='shape')",
+      "ground_truth": [
+        {
+          "addInitializedPropertyStatements": {
+            "statements": [
+              "shapeStatements"
+            ],
+            "property": [
+              [
+                "width",
+                "height"
+              ],
+              [
+                "height",
+                "width"
+              ]
+            ],
+            "receiver": [
+              "shape"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_38",
+      "question": "Help me determine the appropriate directory to monitor for changes, starting from a failed lookup location directory full path '/projects/myApp/node_modules/react', to ensure efficient file watching in a TypeScript project?",
+      "model_response": " function_name(dir=getDirectoryToWatchFromFailedLookupLocationDirectory(dirPath='/projects/myApp/node_modules/react'))",
+      "ground_truth": [
+        {
+          "getDirectoryToWatchFromFailedLookupLocationDirectory": {
+            "dir": [
+              "/projects/myApp/node_modules/react"
+            ],
+            "dirPath": [
+              "/projects/myApp/node_modules/react"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_39",
+      "question": "Help me determine if a synthetic rest parameter should be added to a function declaration that already contains a variadic type in its last parameter, given the declaration object 'funcDeclaration' and its parameters array 'funcParameters'?",
+      "model_response": "maybeAddJsSyntheticRestParameter(declaration=funcDeclaration, parameters=funcParameters)",
+      "ground_truth": [
+        {
+          "maybeAddJsSyntheticRestParameter": {
+            "declaration": [
+              "funcDeclaration"
+            ],
+            "parameters": [
+              "funcParameters"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_40",
+      "question": "Help me determine the value to be used for a property named 'maxItems' in a configuration object, given that the default value is 10 and the object value 12 , but the configuration object does not explicitly define 'maxItems'?",
+      "model_response": " function_name(objectValue=12, sourceValue=10, key='maxItems', object={})",
+      "ground_truth": [
+        {
+          "assignOwnDefaults": {
+            "objectValue": [
+              12.0
+            ],
+            "sourceValue": [
+              10.0
+            ],
+            "key": [
+              "maxItems"
+            ],
+            "object": [
+              {}
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_41",
+      "question": "Help me create a queue with a myWorkerFunction that processes tasks, setting the concurrency level to 5 and without specifying a payload size?",
+      "model_response": " queue_1(worker=myWorkerFunction, concurrency=5)",
+      "ground_truth": [
+        {
+          "queue": {
+            "worker": [
+              "myWorkerFunction"
+            ],
+            "concurrency": [
+              5.0
+            ],
+            "payload": [
+              "",
+              0.0
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_42",
+      "question": "Help me create a task queue with a concurrency of 5, where tasks are functions that log a message to the console, and ensure that when the queue becomes saturated, it logs 'Queue is saturated', and when it becomes unsaturated, it logs 'Queue is unsaturated'?",
+      "model_response": " B(e=[lambda: print(\"Task executed\"), lambda: print(\"Queue is saturated\"), lambda: print(\"Queue is unsaturated\")], t=5)",
+      "ground_truth": [
+        {
+          "B": {
+            "t": [
+              5.0
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_43",
+      "question": "Help me execute a callback function named 'processResult' that handles an error 'null' and a result value of 'Operation successful'?",
+      "model_response": "invokeCallback(callback=processResult, error=null, value='Operation successful')",
+      "ground_truth": [
+        {
+          "invokeCallback": {
+            "callback": [
+              "processResult"
+            ],
+            "error": [
+              "null"
+            ],
+            "value": [
+              "Operation successful"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_44",
+      "question": "Help me execute a custom callback function named 'processNode' on a specific node named 'currentNode' with a state object 'nodeState' during a tree traversal?",
+      "model_response": " skipThrough(node=currentNode, st=nodeState, c=processNode)",
+      "ground_truth": [
+        {
+          "skipThrough": {
+            "node": [
+              "currentNode"
+            ],
+            "st": [
+              "nodeState"
+            ],
+            "c": [
+              "processNode"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_45",
+      "question": "Help me asynchronously retrieve a map of remote Git references and their corresponding commit hashes for a repository URL 'https://github.com/yarnpkg/berry' from a starting directory '/home/user/projects'?",
+      "model_response": " function_name(Sde(t='https://github.com/yarnpkg/berry', e={'startingCwd': '/home/user/projects'}))",
+      "ground_truth": [
+        {
+          "Sde": {
+            "t": [
+              "https://github.com/yarnpkg/berry"
+            ],
+            "e": [
+              {
+                "startingCwd": [
+                  "/home/user/projects"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_46",
+      "question": "Help me update the property 'version' of an object named 'packageInfo' to '1.2.3', ensuring the update only occurs if the new value differs from the existing one or if 'version' is not already a property of the object?",
+      "model_response": " vOe(r=\"packageInfo\", e=\"version\", t=\"1.2.3\")",
+      "ground_truth": [
+        {
+          "vOe": {
+            "r": [
+              "packageInfo"
+            ],
+            "e": [
+              "version"
+            ],
+            "t": [
+              "1.2.3"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_47",
+      "question": "Help me calculate the difference in days between the dates '2023-04-01' and '2023-04-15' using a specific time unit of 'days'?",
+      "model_response": " function_name(r='2023-04-01', e='2023-04-15', t='days')",
+      "ground_truth": [
+        {
+          "sTe": {
+            "r": [
+              "2023-04-01"
+            ],
+            "e": [
+              "2023-04-15"
+            ],
+            "t": [
+              "days"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_48",
+      "question": "Help me update the DOM event listeners from an old virtual node oldVirtualNode to a new one newVirtualNode, considering the new virtual node has a click event that needs to be normalized and updated?",
+      "model_response": " function_name(updateDOMListeners(oldVnode=oldVirtualNode, vnode=newVirtualNode))",
+      "ground_truth": [
+        {
+          "updateDOMListeners": {
+            "oldVnode": [
+              "oldVirtualNode"
+            ],
+            "vnode": [
+              "newVirtualNode"
+            ]
+          }
+        }
+      ],
+      "judged_correct": false,
+      "success": true
+    },
+    {
+      "id": "simple_javascript_49",
+      "question": "Help me determine the appropriate boolean string representation for the 'contenteditable' attribute when the value provided is 'plaintext-only', ensuring it's a valid value for contenteditable?",
+      "model_response": "convertEnumeratedValue(key=\"contenteditable\", value=\"plaintext-only\")",
+      "ground_truth": [
+        {
+          "convertEnumeratedValue": {
+            "key": [
+              "contenteditable"
+            ],
+            "value": [
+              "plaintext-only"
+            ]
+          }
+        }
+      ],
+      "judged_correct": true,
+      "success": true
+    }
+  ]
+}
